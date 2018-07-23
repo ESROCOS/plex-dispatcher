@@ -1,0 +1,138 @@
+---------------------------------------------------
+-- AADL2.1
+-- TASTE type deploymentview
+-- 
+-- generated code: do not edit
+---------------------------------------------------
+
+PACKAGE deploymentview::DV::Node1
+PUBLIC
+
+WITH Taste;
+WITH Deployment;
+WITH TASTE_DV_Properties;
+PROCESS test_motion_command_dispatcher
+END test_motion_command_dispatcher;
+
+PROCESS IMPLEMENTATION test_motion_command_dispatcher.others
+END test_motion_command_dispatcher.others;
+
+END deploymentview::DV::Node1;
+
+PACKAGE deploymentview::DV::Node2
+PUBLIC
+
+WITH Taste;
+WITH Deployment;
+WITH TASTE_DV_Properties;
+PROCESS test_rigid_body_state_dispatcher
+END test_rigid_body_state_dispatcher;
+
+PROCESS IMPLEMENTATION test_rigid_body_state_dispatcher.others
+END test_rigid_body_state_dispatcher.others;
+
+END deploymentview::DV::Node2;
+
+PACKAGE deploymentview::DV
+PUBLIC
+
+WITH interfaceview::IV::MotionCommandDispatcher;
+WITH interfaceview::IV::test_MotionCommandDispatcherConsumer1;
+WITH interfaceview::IV::test_MotionCommandDispatcherConsumer2;
+WITH interfaceview::IV::test_MotioncommandDisapatcherProducer;
+WITH ocarina_processors_x86;
+WITH deploymentview::DV::Node1;
+WITH interfaceview::IV::RigidBodyStateDispatcher;
+WITH interfaceview::IV::test_RigidBodyStateDisapatcherProducer;
+WITH interfaceview::IV::test_RigidBodyStateDispatcherConsumer1;
+WITH interfaceview::IV::test_RigidBodyStateDispatcherConsumer2;
+WITH deploymentview::DV::Node2;
+WITH Taste;
+WITH Deployment;
+WITH interfaceview::IV;
+WITH TASTE_DV_Properties;
+SYSTEM Node1
+END Node1;
+
+SYSTEM IMPLEMENTATION Node1.others
+SUBCOMPONENTS
+  IV_MotionCommandDispatcher : SYSTEM interfaceview::IV::MotionCommandDispatcher::MotionCommandDispatcher.others {
+    Taste::FunctionName => "MotionCommandDispatcher";
+  };
+  IV_test_MotionCommandDispatcherConsumer1 : SYSTEM interfaceview::IV::test_MotionCommandDispatcherConsumer1::test_MotionCommandDispatcherConsumer1.others {
+    Taste::FunctionName => "test_MotionCommandDispatcherConsumer1";
+  };
+  IV_test_MotionCommandDispatcherConsumer2 : SYSTEM interfaceview::IV::test_MotionCommandDispatcherConsumer2::test_MotionCommandDispatcherConsumer2.others {
+    Taste::FunctionName => "test_MotionCommandDispatcherConsumer2";
+  };
+  IV_test_MotioncommandDisapatcherProducer : SYSTEM interfaceview::IV::test_MotioncommandDisapatcherProducer::test_MotioncommandDisapatcherProducer.others {
+    Taste::FunctionName => "test_MotioncommandDisapatcherProducer";
+  };
+  test_motion_command_dispatcher : PROCESS deploymentview::DV::Node1::test_motion_command_dispatcher.others {
+    Taste::coordinates => "94805 78989 134781 97339";
+    Deployment::Port_Number => 0;
+  };
+  x86_linux : PROCESSOR ocarina_processors_x86::x86.linux {
+    Taste::coordinates => "93047 68129 145728 151583";
+  };
+PROPERTIES
+  Taste::APLC_Binding => (reference (test_motion_command_dispatcher)) APPLIES TO IV_MotionCommandDispatcher;
+  Taste::APLC_Binding => (reference (test_motion_command_dispatcher)) APPLIES TO IV_test_MotionCommandDispatcherConsumer1;
+  Taste::APLC_Binding => (reference (test_motion_command_dispatcher)) APPLIES TO IV_test_MotionCommandDispatcherConsumer2;
+  Taste::APLC_Binding => (reference (test_motion_command_dispatcher)) APPLIES TO IV_test_MotioncommandDisapatcherProducer;
+  Actual_Processor_Binding => (reference (x86_linux)) APPLIES TO test_motion_command_dispatcher;
+END Node1.others;
+
+SYSTEM Node2
+END Node2;
+
+SYSTEM IMPLEMENTATION Node2.others
+SUBCOMPONENTS
+  IV_RigidBodyStateDispatcher : SYSTEM interfaceview::IV::RigidBodyStateDispatcher::RigidBodyStateDispatcher.others {
+    Taste::FunctionName => "RigidBodyStateDispatcher";
+  };
+  IV_test_RigidBodyStateDisapatcherProducer : SYSTEM interfaceview::IV::test_RigidBodyStateDisapatcherProducer::test_RigidBodyStateDisapatcherProducer.others {
+    Taste::FunctionName => "test_RigidBodyStateDisapatcherProducer";
+  };
+  IV_test_RigidBodyStateDispatcherConsumer1 : SYSTEM interfaceview::IV::test_RigidBodyStateDispatcherConsumer1::test_RigidBodyStateDispatcherConsumer1.others {
+    Taste::FunctionName => "test_RigidBodyStateDispatcherConsumer1";
+  };
+  IV_test_RigidBodyStateDispatcherConsumer2 : SYSTEM interfaceview::IV::test_RigidBodyStateDispatcherConsumer2::test_RigidBodyStateDispatcherConsumer2.others {
+    Taste::FunctionName => "test_RigidBodyStateDispatcherConsumer2";
+  };
+  test_rigid_body_state_dispatcher : PROCESS deploymentview::DV::Node2::test_rigid_body_state_dispatcher.others {
+    Taste::coordinates => "168190 80919 208174 127702";
+    Deployment::Port_Number => 0;
+  };
+  x86_linux : PROCESSOR ocarina_processors_x86::x86.linux {
+    Taste::coordinates => "163192 67552 213172 134385";
+  };
+PROPERTIES
+  Taste::APLC_Binding => (reference (test_rigid_body_state_dispatcher)) APPLIES TO IV_RigidBodyStateDispatcher;
+  Taste::APLC_Binding => (reference (test_rigid_body_state_dispatcher)) APPLIES TO IV_test_RigidBodyStateDisapatcherProducer;
+  Taste::APLC_Binding => (reference (test_rigid_body_state_dispatcher)) APPLIES TO IV_test_RigidBodyStateDispatcherConsumer1;
+  Taste::APLC_Binding => (reference (test_rigid_body_state_dispatcher)) APPLIES TO IV_test_RigidBodyStateDispatcherConsumer2;
+  Actual_Processor_Binding => (reference (x86_linux)) APPLIES TO test_rigid_body_state_dispatcher;
+END Node2.others;
+
+SYSTEM deploymentview
+END deploymentview;
+
+SYSTEM IMPLEMENTATION deploymentview.others
+SUBCOMPONENTS
+  Node1 : SYSTEM Node1.others {
+    Taste::coordinates => "89014 60495 151489 158438";
+  };
+  Node2 : SYSTEM Node2.others {
+    Taste::coordinates => "159447 60927 217637 141010";
+  };
+  interfaceview : SYSTEM interfaceview::IV::interfaceview.others;
+END deploymentview.others;
+
+PROPERTIES
+  Taste::coordinates => "0 0 297000 210000";
+  Taste::version => "2.0";
+  Taste::interfaceView => "taste_dispatcher_iv.aadl";
+  Taste::HWLibraries => ("../../tool-inst/share/ocarina/AADLv2/ocarina_components.aadl");
+END deploymentview::DV;
+
