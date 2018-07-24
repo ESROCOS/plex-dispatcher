@@ -71,6 +71,7 @@ FEATURES
 PROPERTIES
   Source_Language => (C);
   Taste::Active_Interfaces => any;
+  Source_Text => ("motioncommanddispatcher.zip");
 END MotionCommandDispatcher;
 
 SYSTEM IMPLEMENTATION MotionCommandDispatcher.others
@@ -281,6 +282,7 @@ FEATURES
 PROPERTIES
   Source_Language => (C);
   Taste::Active_Interfaces => any;
+  Source_Text => ("rigidbodystatedispatcher.zip");
 END RigidBodyStateDispatcher;
 
 SYSTEM IMPLEMENTATION RigidBodyStateDispatcher.others
@@ -491,6 +493,7 @@ FEATURES
 PROPERTIES
   Source_Language => (C);
   Taste::Active_Interfaces => any;
+  Source_Text => ("joystickcommanddispatcher.zip");
 END JoystickCommandDispatcher;
 
 SYSTEM IMPLEMENTATION JoystickCommandDispatcher.others
