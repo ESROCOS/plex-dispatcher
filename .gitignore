@@ -6,4 +6,6 @@ binary.c
 *.zip
 system_config.h
 __*.aadl
+build
+debug
 

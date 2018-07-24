@@ -37,13 +37,15 @@ esrocos_init()
 ########### FOR COMPONENT PROJECTS ################
 
 #uncomment if you want to export a function
-#esrocos_export_function("example" "tutorial/example_dir")
+esrocos_export_function("MotionCommandDispatcher" "share/taste_components/dispatchers")
+esrocos_export_function("RigidBodyStateDispatcher" "share/taste_components/dispatchers")
+esrocos_export_function("JoystickCommandDispatcher" "share/taste_components/dispatchers")
 
 #uncomment to export PKG-CONFIG-file
-#esrocos_export_pkgconfig( VERSION 1.0
-#                          DESCRIPTION "none"
-#                          REQUIRES ""
-#                          LIBS ""
-#                          STATIC_LIBS "" 
-#                          C_FLAGS ""
-#                        ) 
+esrocos_export_pkgconfig( VERSION 1.0
+                          DESCRIPTION "none"
+                          REQUIRES ""
+                          LIBS ""
+                          STATIC_LIBS "" 
+                          C_FLAGS ""
+                        ) 

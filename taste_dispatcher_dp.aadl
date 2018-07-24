@@ -33,6 +33,20 @@ END test_rigid_body_state_dispatcher.others;
 
 END deploymentview::DV::Node2;
 
+PACKAGE deploymentview::DV::Node3
+PUBLIC
+
+WITH Taste;
+WITH Deployment;
+WITH TASTE_DV_Properties;
+PROCESS test_joystick_command_dispatcher
+END test_joystick_command_dispatcher;
+
+PROCESS IMPLEMENTATION test_joystick_command_dispatcher.others
+END test_joystick_command_dispatcher.others;
+
+END deploymentview::DV::Node3;
+
 PACKAGE deploymentview::DV
 PUBLIC
 
@@ -47,6 +61,11 @@ WITH interfaceview::IV::test_RigidBodyStateDisapatcherProducer;
 WITH interfaceview::IV::test_RigidBodyStateDispatcherConsumer1;
 WITH interfaceview::IV::test_RigidBodyStateDispatcherConsumer2;
 WITH deploymentview::DV::Node2;
+WITH interfaceview::IV::JoystickCommandDispatcher;
+WITH interfaceview::IV::testJoystickCommandDispatcherProducer;
+WITH interfaceview::IV::testJoystickCommandDispatcherConsumer1;
+WITH interfaceview::IV::testJoystickCommandDispatcherConsumer2;
+WITH deploymentview::DV::Node3;
 WITH Taste;
 WITH Deployment;
 WITH interfaceview::IV;
@@ -73,7 +92,7 @@ SUBCOMPONENTS
     Deployment::Port_Number => 0;
   };
   x86_linux : PROCESSOR ocarina_processors_x86::x86.linux {
-    Taste::coordinates => "93047 68129 145728 151583";
+    Taste::coordinates => "93047 68129 145728 103417";
   };
 PROPERTIES
   Taste::APLC_Binding => (reference (test_motion_command_dispatcher)) APPLIES TO IV_MotionCommandDispatcher;
@@ -101,11 +120,11 @@ SUBCOMPONENTS
     Taste::FunctionName => "test_RigidBodyStateDispatcherConsumer2";
   };
   test_rigid_body_state_dispatcher : PROCESS deploymentview::DV::Node2::test_rigid_body_state_dispatcher.others {
-    Taste::coordinates => "168190 80919 208174 127702";
+    Taste::coordinates => "168190 80919 208174 109899";
     Deployment::Port_Number => 0;
   };
   x86_linux : PROCESSOR ocarina_processors_x86::x86.linux {
-    Taste::coordinates => "163192 67552 213172 134385";
+    Taste::coordinates => "163192 67552 213172 114508";
   };
 PROPERTIES
   Taste::APLC_Binding => (reference (test_rigid_body_state_dispatcher)) APPLIES TO IV_RigidBodyStateDispatcher;
@@ -115,16 +134,51 @@ PROPERTIES
   Actual_Processor_Binding => (reference (x86_linux)) APPLIES TO test_rigid_body_state_dispatcher;
 END Node2.others;
 
+SYSTEM Node3
+END Node3;
+
+SYSTEM IMPLEMENTATION Node3.others
+SUBCOMPONENTS
+  IV_JoystickCommandDispatcher : SYSTEM interfaceview::IV::JoystickCommandDispatcher::JoystickCommandDispatcher.others {
+    Taste::FunctionName => "JoystickCommandDispatcher";
+  };
+  IV_testJoystickCommandDispatcherProducer : SYSTEM interfaceview::IV::testJoystickCommandDispatcherProducer::testJoystickCommandDispatcherProducer.others {
+    Taste::FunctionName => "testJoystickCommandDispatcherProducer";
+  };
+  IV_testJoystickCommandDispatcherConsumer1 : SYSTEM interfaceview::IV::testJoystickCommandDispatcherConsumer1::testJoystickCommandDispatcherConsumer1.others {
+    Taste::FunctionName => "testJoystickCommandDispatcherConsumer1";
+  };
+  IV_testJoystickCommandDispatcherConsumer2 : SYSTEM interfaceview::IV::testJoystickCommandDispatcherConsumer2::testJoystickCommandDispatcherConsumer2.others {
+    Taste::FunctionName => "testJoystickCommandDispatcherConsumer2";
+  };
+  test_joystick_command_dispatcher : PROCESS deploymentview::DV::Node3::test_joystick_command_dispatcher.others {
+    Taste::coordinates => "102899 136919 141384 162428";
+    Deployment::Port_Number => 0;
+  };
+  x86_linux : PROCESSOR ocarina_processors_x86::x86.linux {
+    Taste::coordinates => "98088 129631 146195 166072";
+  };
+PROPERTIES
+  Taste::APLC_Binding => (reference (test_joystick_command_dispatcher)) APPLIES TO IV_JoystickCommandDispatcher;
+  Taste::APLC_Binding => (reference (test_joystick_command_dispatcher)) APPLIES TO IV_testJoystickCommandDispatcherProducer;
+  Taste::APLC_Binding => (reference (test_joystick_command_dispatcher)) APPLIES TO IV_testJoystickCommandDispatcherConsumer1;
+  Taste::APLC_Binding => (reference (test_joystick_command_dispatcher)) APPLIES TO IV_testJoystickCommandDispatcherConsumer2;
+  Actual_Processor_Binding => (reference (x86_linux)) APPLIES TO test_joystick_command_dispatcher;
+END Node3.others;
+
 SYSTEM deploymentview
 END deploymentview;
 
 SYSTEM IMPLEMENTATION deploymentview.others
 SUBCOMPONENTS
   Node1 : SYSTEM Node1.others {
-    Taste::coordinates => "89014 60495 151489 158438";
+    Taste::coordinates => "89014 60495 151489 109611";
   };
   Node2 : SYSTEM Node2.others {
-    Taste::coordinates => "159447 60927 217637 141010";
+    Taste::coordinates => "159447 60927 217637 122862";
+  };
+  Node3 : SYSTEM Node3.others {
+    Taste::coordinates => "89878 121997 153973 176875";
   };
   interfaceview : SYSTEM interfaceview::IV::interfaceview.others;
 END deploymentview.others;
@@ -133,6 +187,6 @@ PROPERTIES
   Taste::coordinates => "0 0 297000 210000";
   Taste::version => "2.0";
   Taste::interfaceView => "taste_dispatcher_iv.aadl";
-  Taste::HWLibraries => ("../../tool-inst/share/ocarina/AADLv2/ocarina_components.aadl");
+  Taste::HWLibraries => ("../../../tool-inst/share/ocarina/AADLv2/ocarina_components.aadl");
 END deploymentview::DV;
 

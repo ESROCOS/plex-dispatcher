@@ -81,6 +81,14 @@ cd "$SKELS" && rm -f test_rigidbodystatedispatcherconsumer1.zip && zip test_rigi
 
 cd "$SKELS" && rm -f test_rigidbodystatedispatcherconsumer2.zip && zip test_rigidbodystatedispatcherconsumer2 test_rigidbodystatedispatcherconsumer2/* && cd $OLDPWD
 
+cd "$SKELS" && rm -f joystickcommanddispatcher.zip && zip joystickcommanddispatcher joystickcommanddispatcher/* && cd $OLDPWD
+
+cd "$SKELS" && rm -f testjoystickcommanddispatcherproducer.zip && zip testjoystickcommanddispatcherproducer testjoystickcommanddispatcherproducer/* && cd $OLDPWD
+
+cd "$SKELS" && rm -f testjoystickcommanddispatcherconsumer1.zip && zip testjoystickcommanddispatcherconsumer1 testjoystickcommanddispatcherconsumer1/* && cd $OLDPWD
+
+cd "$SKELS" && rm -f testjoystickcommanddispatcherconsumer2.zip && zip testjoystickcommanddispatcherconsumer2 testjoystickcommanddispatcherconsumer2/* && cd $OLDPWD
+
 [ ! -z "$CLEANUP" ] && rm -rf binary*
 
 if [ -f ConcurrencyView.pro ]
@@ -129,6 +137,10 @@ cd "$CWD" && assert-builder-ocarina.py \
 	--subC test_rigidbodystatedisapatcherproducer:"$SKELS"/test_rigidbodystatedisapatcherproducer.zip \
 	--subC test_rigidbodystatedispatcherconsumer1:"$SKELS"/test_rigidbodystatedispatcherconsumer1.zip \
 	--subC test_rigidbodystatedispatcherconsumer2:"$SKELS"/test_rigidbodystatedispatcherconsumer2.zip \
+	--subC joystickcommanddispatcher:"$SKELS"/joystickcommanddispatcher.zip \
+	--subC testjoystickcommanddispatcherproducer:"$SKELS"/testjoystickcommanddispatcherproducer.zip \
+	--subC testjoystickcommanddispatcherconsumer1:"$SKELS"/testjoystickcommanddispatcherconsumer1.zip \
+	--subC testjoystickcommanddispatcherconsumer2:"$SKELS"/testjoystickcommanddispatcherconsumer2.zip \
 	$ORCHESTRATOR_OPTIONS
 
 if [ -f user_init_last.sh ]

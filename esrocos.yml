@@ -3,3 +3,4 @@ PROJECT_NAME: taste_dispatcher
 deps:
 - types/base: ''
 - types/base_support: ''
+- types/controldev: ''
