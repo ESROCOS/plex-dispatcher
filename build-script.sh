@@ -65,23 +65,17 @@ SKELS="./"
 # Check if Dataview references existing files 
 mono $(which taste-extract-asn-from-design.exe) -i "$INTERFACEVIEW" -j /tmp/dv.asn
 
-cd "$SKELS" && rm -f motioncommanddispatcher.zip && zip motioncommanddispatcher motioncommanddispatcher/* && cd $OLDPWD
-
 cd "$SKELS" && rm -f test_motioncommanddispatcherconsumer1.zip && zip test_motioncommanddispatcherconsumer1 test_motioncommanddispatcherconsumer1/* && cd $OLDPWD
 
 cd "$SKELS" && rm -f test_motioncommanddispatcherconsumer2.zip && zip test_motioncommanddispatcherconsumer2 test_motioncommanddispatcherconsumer2/* && cd $OLDPWD
 
 cd "$SKELS" && rm -f test_motioncommanddisapatcherproducer.zip && zip test_motioncommanddisapatcherproducer test_motioncommanddisapatcherproducer/* && cd $OLDPWD
 
-cd "$SKELS" && rm -f rigidbodystatedispatcher.zip && zip rigidbodystatedispatcher rigidbodystatedispatcher/* && cd $OLDPWD
-
 cd "$SKELS" && rm -f test_rigidbodystatedisapatcherproducer.zip && zip test_rigidbodystatedisapatcherproducer test_rigidbodystatedisapatcherproducer/* && cd $OLDPWD
 
 cd "$SKELS" && rm -f test_rigidbodystatedispatcherconsumer1.zip && zip test_rigidbodystatedispatcherconsumer1 test_rigidbodystatedispatcherconsumer1/* && cd $OLDPWD
 
 cd "$SKELS" && rm -f test_rigidbodystatedispatcherconsumer2.zip && zip test_rigidbodystatedispatcherconsumer2 test_rigidbodystatedispatcherconsumer2/* && cd $OLDPWD
-
-cd "$SKELS" && rm -f joystickcommanddispatcher.zip && zip joystickcommanddispatcher joystickcommanddispatcher/* && cd $OLDPWD
 
 cd "$SKELS" && rm -f testjoystickcommanddispatcherproducer.zip && zip testjoystickcommanddispatcherproducer testjoystickcommanddispatcherproducer/* && cd $OLDPWD
 
@@ -129,15 +123,15 @@ cd "$CWD" && assert-builder-ocarina.py \
 	--interfaceView "$INTERFACEVIEW" \
 	--deploymentView "$DEPLOYMENTVIEW" \
 	-o "$OUTPUTDIR" \
-	--subC motioncommanddispatcher:"$SKELS"/motioncommanddispatcher.zip \
+	--subC motioncommanddispatcher:motioncommanddispatcher.zip \
 	--subC test_motioncommanddispatcherconsumer1:"$SKELS"/test_motioncommanddispatcherconsumer1.zip \
 	--subC test_motioncommanddispatcherconsumer2:"$SKELS"/test_motioncommanddispatcherconsumer2.zip \
 	--subC test_motioncommanddisapatcherproducer:"$SKELS"/test_motioncommanddisapatcherproducer.zip \
-	--subC rigidbodystatedispatcher:"$SKELS"/rigidbodystatedispatcher.zip \
+	--subC rigidbodystatedispatcher:rigidbodystatedispatcher.zip \
 	--subC test_rigidbodystatedisapatcherproducer:"$SKELS"/test_rigidbodystatedisapatcherproducer.zip \
 	--subC test_rigidbodystatedispatcherconsumer1:"$SKELS"/test_rigidbodystatedispatcherconsumer1.zip \
 	--subC test_rigidbodystatedispatcherconsumer2:"$SKELS"/test_rigidbodystatedispatcherconsumer2.zip \
-	--subC joystickcommanddispatcher:"$SKELS"/joystickcommanddispatcher.zip \
+	--subC joystickcommanddispatcher:joystickcommanddispatcher.zip \
 	--subC testjoystickcommanddispatcherproducer:"$SKELS"/testjoystickcommanddispatcherproducer.zip \
 	--subC testjoystickcommanddispatcherconsumer1:"$SKELS"/testjoystickcommanddispatcherconsumer1.zip \
 	--subC testjoystickcommanddispatcherconsumer2:"$SKELS"/testjoystickcommanddispatcherconsumer2.zip \

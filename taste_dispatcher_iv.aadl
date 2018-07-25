@@ -29,7 +29,7 @@ END PI_dispatch_motion_command.others;
 
 SUBPROGRAM RI_sample
 FEATURES
-  sample : IN PARAMETER DataView::Base_samples_Motion2D {
+  sample : IN PARAMETER DataView::Base_commands_Motion2D {
     Taste::encoding => NATIVE;
   };
 END RI_sample;
@@ -39,7 +39,7 @@ END RI_sample.others;
 
 SUBPROGRAM RI_sample1
 FEATURES
-  sample : IN PARAMETER DataView::Base_samples_Motion2D {
+  sample1 : IN PARAMETER DataView::Base_commands_Motion2D {
     Taste::encoding => NATIVE;
   };
 END RI_sample1;
@@ -87,7 +87,7 @@ WITH DataView;
 WITH TASTE_IV_Properties;
 SUBPROGRAM PI_sample
 FEATURES
-  sample : IN PARAMETER DataView::Base_samples_Motion2D {
+  sample : IN PARAMETER DataView::Base_commands_Motion2D {
     Taste::encoding => NATIVE;
   };
 PROPERTIES
@@ -126,7 +126,7 @@ WITH DataView;
 WITH TASTE_IV_Properties;
 SUBPROGRAM PI_sample1
 FEATURES
-  sample : IN PARAMETER DataView::Base_samples_Motion2D {
+  sample : IN PARAMETER DataView::Base_commands_Motion2D {
     Taste::encoding => NATIVE;
   };
 PROPERTIES

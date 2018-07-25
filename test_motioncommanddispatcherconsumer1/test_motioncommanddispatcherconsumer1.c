@@ -8,7 +8,7 @@ void test_motioncommanddispatcherconsumer1_startup()
        but do not make any call to a required interface. */
 }
 
-void test_motioncommanddispatcherconsumer1_PI_sample(const asn1SccBase_samples_Motion2D *IN_sample)
+void test_motioncommanddispatcherconsumer1_PI_sample(const asn1SccBase_commands_Motion2D *IN_sample)
 {
     PrintBase_commands_Motion2D("consumer1", IN_sample);
 }

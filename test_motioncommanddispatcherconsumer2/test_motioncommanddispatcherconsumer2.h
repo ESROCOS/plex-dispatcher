@@ -13,7 +13,7 @@ extern "C" {
 
 void test_motioncommanddispatcherconsumer2_startup();
 
-void test_motioncommanddispatcherconsumer2_PI_sample1(const asn1SccBase_samples_Motion2D *);
+void test_motioncommanddispatcherconsumer2_PI_sample1(const asn1SccBase_commands_Motion2D *);
 
 #ifdef __cplusplus
 }
