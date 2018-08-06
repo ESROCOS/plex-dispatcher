@@ -47,6 +47,20 @@ END test_joystick_command_dispatcher.others;
 
 END deploymentview::DV::Node3;
 
+PACKAGE deploymentview::DV::Node4
+PUBLIC
+
+WITH Taste;
+WITH Deployment;
+WITH TASTE_DV_Properties;
+PROCESS test_double_dispatcher
+END test_double_dispatcher;
+
+PROCESS IMPLEMENTATION test_double_dispatcher.others
+END test_double_dispatcher.others;
+
+END deploymentview::DV::Node4;
+
 PACKAGE deploymentview::DV
 PUBLIC
 
@@ -66,6 +80,11 @@ WITH interfaceview::IV::testJoystickCommandDispatcherProducer;
 WITH interfaceview::IV::testJoystickCommandDispatcherConsumer1;
 WITH interfaceview::IV::testJoystickCommandDispatcherConsumer2;
 WITH deploymentview::DV::Node3;
+WITH interfaceview::IV::DoubleDispatcher;
+WITH interfaceview::IV::test_doubleProducer;
+WITH interfaceview::IV::test_double_consumer1;
+WITH interfaceview::IV::taste_double_consumer2;
+WITH deploymentview::DV::Node4;
 WITH Taste;
 WITH Deployment;
 WITH interfaceview::IV;
@@ -166,6 +185,38 @@ PROPERTIES
   Actual_Processor_Binding => (reference (x86_linux)) APPLIES TO test_joystick_command_dispatcher;
 END Node3.others;
 
+SYSTEM Node4
+END Node4;
+
+SYSTEM IMPLEMENTATION Node4.others
+SUBCOMPONENTS
+  IV_DoubleDispatcher : SYSTEM interfaceview::IV::DoubleDispatcher::DoubleDispatcher.others {
+    Taste::FunctionName => "DoubleDispatcher";
+  };
+  IV_test_doubleProducer : SYSTEM interfaceview::IV::test_doubleProducer::test_doubleProducer.others {
+    Taste::FunctionName => "test_doubleProducer";
+  };
+  IV_test_double_consumer1 : SYSTEM interfaceview::IV::test_double_consumer1::test_double_consumer1.others {
+    Taste::FunctionName => "test_double_consumer1";
+  };
+  IV_taste_double_consumer2 : SYSTEM interfaceview::IV::taste_double_consumer2::taste_double_consumer2.others {
+    Taste::FunctionName => "taste_double_consumer2";
+  };
+  test_double_dispatcher : PROCESS deploymentview::DV::Node4::test_double_dispatcher.others {
+    Taste::coordinates => "177644 149869 223166 173534";
+    Deployment::Port_Number => 0;
+  };
+  x86_linux : PROCESSOR ocarina_processors_x86::x86.linux {
+    Taste::coordinates => "171954 143107 228856 176915";
+  };
+PROPERTIES
+  Taste::APLC_Binding => (reference (test_double_dispatcher)) APPLIES TO IV_DoubleDispatcher;
+  Taste::APLC_Binding => (reference (test_double_dispatcher)) APPLIES TO IV_test_doubleProducer;
+  Taste::APLC_Binding => (reference (test_double_dispatcher)) APPLIES TO IV_test_double_consumer1;
+  Taste::APLC_Binding => (reference (test_double_dispatcher)) APPLIES TO IV_taste_double_consumer2;
+  Actual_Processor_Binding => (reference (x86_linux)) APPLIES TO test_double_dispatcher;
+END Node4.others;
+
 SYSTEM deploymentview
 END deploymentview;
 
@@ -179,6 +230,9 @@ SUBCOMPONENTS
   };
   Node3 : SYSTEM Node3.others {
     Taste::coordinates => "89878 121997 153973 176875";
+  };
+  Node4 : SYSTEM Node4.others {
+    Taste::coordinates => "164841 133448 235969 181745";
   };
   interfaceview : SYSTEM interfaceview::IV::interfaceview.others;
 END deploymentview.others;

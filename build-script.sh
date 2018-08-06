@@ -83,6 +83,14 @@ cd "$SKELS" && rm -f testjoystickcommanddispatcherconsumer1.zip && zip testjoyst
 
 cd "$SKELS" && rm -f testjoystickcommanddispatcherconsumer2.zip && zip testjoystickcommanddispatcherconsumer2 testjoystickcommanddispatcherconsumer2/* && cd $OLDPWD
 
+cd "$SKELS" && rm -f doubledispatcher.zip && zip doubledispatcher doubledispatcher/* && cd $OLDPWD
+
+cd "$SKELS" && rm -f test_doubleproducer.zip && zip test_doubleproducer test_doubleproducer/* && cd $OLDPWD
+
+cd "$SKELS" && rm -f test_double_consumer1.zip && zip test_double_consumer1 test_double_consumer1/* && cd $OLDPWD
+
+cd "$SKELS" && rm -f taste_double_consumer2.zip && zip taste_double_consumer2 taste_double_consumer2/* && cd $OLDPWD
+
 [ ! -z "$CLEANUP" ] && rm -rf binary*
 
 if [ -f ConcurrencyView.pro ]
@@ -135,6 +143,10 @@ cd "$CWD" && assert-builder-ocarina.py \
 	--subC testjoystickcommanddispatcherproducer:"$SKELS"/testjoystickcommanddispatcherproducer.zip \
 	--subC testjoystickcommanddispatcherconsumer1:"$SKELS"/testjoystickcommanddispatcherconsumer1.zip \
 	--subC testjoystickcommanddispatcherconsumer2:"$SKELS"/testjoystickcommanddispatcherconsumer2.zip \
+	--subCPP doubledispatcher:"$SKELS"/doubledispatcher.zip \
+	--subCPP test_doubleproducer:"$SKELS"/test_doubleproducer.zip \
+	--subCPP test_double_consumer1:"$SKELS"/test_double_consumer1.zip \
+	--subCPP taste_double_consumer2:"$SKELS"/taste_double_consumer2.zip \
 	$ORCHESTRATOR_OPTIONS
 
 if [ -f user_init_last.sh ]

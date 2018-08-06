@@ -1,6 +1,7 @@
 /* User code: This file will not be overwritten by TASTE. */
 
 #include "joystickcommanddispatcher.h"
+#include <stdio.h>
 
 void joystickcommanddispatcher_startup()
 {
@@ -10,7 +11,9 @@ void joystickcommanddispatcher_startup()
 
 void joystickcommanddispatcher_PI_dispatch(const asn1SccJoystickCommand *IN_sample)
 {
+    printf("Joystick Dispather called\n");
     joystickcommanddispatcher_RI_sample(IN_sample);
     joystickcommanddispatcher_RI_sample1(IN_sample);
+    printf("Joystick Dispather done\n");
 }
 
