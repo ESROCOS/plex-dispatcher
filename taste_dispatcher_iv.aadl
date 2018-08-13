@@ -493,7 +493,7 @@ FEATURES
 PROPERTIES
   Source_Language => (C);
   Taste::Active_Interfaces => any;
-  Source_Text => ("joystickcommanddispatcher.zip");
+  Source_Text => ("joystickdispatcher.zip");
 END JoystickCommandDispatcher;
 
 SYSTEM IMPLEMENTATION JoystickCommandDispatcher.others
@@ -683,20 +683,20 @@ END RI_sample2.others;
 SYSTEM DoubleDispatcher
 FEATURES
   PI_dispatch : PROVIDES SUBPROGRAM ACCESS interfaceview::IV::DoubleDispatcher::PI_dispatch.others {
-    Taste::coordinates => "97617 32365";
+    Taste::coordinates => "98371 40659";
     Taste::RCMoperationKind => sporadic;
     Taste::RCMperiod => 0 ms;
     Taste::Deadline => 0 ms;
     Taste::InterfaceName => "dispatch";
   };
   RI_sample : REQUIRES SUBPROGRAM ACCESS interfaceview::IV::test_double_consumer1::PI_sample.others {
-    Taste::coordinates => "145860 32365";
+    Taste::coordinates => "146614 40659";
     Taste::RCMoperationKind => any;
     Taste::InterfaceName => "sample";
     Taste::labelInheritance => "true";
   };
   RI_sample2 : REQUIRES SUBPROGRAM ACCESS interfaceview::IV::taste_double_consumer2::PI_sample.others {
-    Taste::coordinates => "145860 49168";
+    Taste::coordinates => "146614 57462";
     Taste::RCMoperationKind => any;
     Taste::InterfaceName => "sample2";
     Taste::labelInheritance => "false";
@@ -849,6 +849,186 @@ END taste_double_consumer2.others;
 
 END interfaceview::IV::taste_double_consumer2;
 
+PACKAGE interfaceview::IV::NoArgDispatcher
+PUBLIC
+
+WITH interfaceview::IV::test_noarg_consumer1;
+WITH interfaceview::IV::test_noarg_consumer2;
+WITH Taste;
+WITH DataView;
+WITH TASTE_IV_Properties;
+SUBPROGRAM PI_sample
+PROPERTIES
+  Taste::Associated_Queue_Size => 1;
+END PI_sample;
+
+SUBPROGRAM IMPLEMENTATION PI_sample.others
+PROPERTIES
+  Compute_Execution_Time => 0 ms .. 0 ms;
+END PI_sample.others;
+
+SUBPROGRAM RI_sample
+END RI_sample;
+
+SUBPROGRAM IMPLEMENTATION RI_sample.others
+END RI_sample.others;
+
+SUBPROGRAM RI_sample1
+END RI_sample1;
+
+SUBPROGRAM IMPLEMENTATION RI_sample1.others
+END RI_sample1.others;
+
+SYSTEM NoArgDispatcher
+FEATURES
+  PI_sample : PROVIDES SUBPROGRAM ACCESS interfaceview::IV::NoArgDispatcher::PI_sample.others {
+    Taste::coordinates => "95016 7890";
+    Taste::RCMoperationKind => sporadic;
+    Taste::RCMperiod => 0 ms;
+    Taste::Deadline => 0 ms;
+    Taste::InterfaceName => "sample";
+  };
+  RI_sample : REQUIRES SUBPROGRAM ACCESS interfaceview::IV::test_noarg_consumer1::PI_sample.others {
+    Taste::coordinates => "146291 5251";
+    Taste::RCMoperationKind => any;
+    Taste::InterfaceName => "sample";
+    Taste::labelInheritance => "true";
+  };
+  RI_sample1 : REQUIRES SUBPROGRAM ACCESS interfaceview::IV::test_noarg_consumer2::PI_sample1.others {
+    Taste::coordinates => "146291 20331";
+    Taste::RCMoperationKind => any;
+    Taste::InterfaceName => "sample1";
+    Taste::labelInheritance => "true";
+  };
+PROPERTIES
+  Source_Language => (CPP);
+  Taste::Active_Interfaces => any;
+  Source_Text => ("noargdispatcher.zip");
+END NoArgDispatcher;
+
+SYSTEM IMPLEMENTATION NoArgDispatcher.others
+END NoArgDispatcher.others;
+
+END interfaceview::IV::NoArgDispatcher;
+
+PACKAGE interfaceview::IV::testNoArgDispatcher
+PUBLIC
+
+WITH interfaceview::IV::NoArgDispatcher;
+WITH Taste;
+WITH DataView;
+WITH TASTE_IV_Properties;
+SUBPROGRAM PI_trigger
+PROPERTIES
+  Taste::Associated_Queue_Size => 1;
+END PI_trigger;
+
+SUBPROGRAM IMPLEMENTATION PI_trigger.others
+PROPERTIES
+  Compute_Execution_Time => 0 ms .. 0 ms;
+END PI_trigger.others;
+
+SUBPROGRAM RI_sample
+END RI_sample;
+
+SUBPROGRAM IMPLEMENTATION RI_sample.others
+END RI_sample.others;
+
+SYSTEM testNoArgDispatcher
+FEATURES
+  PI_trigger : PROVIDES SUBPROGRAM ACCESS interfaceview::IV::testNoArgDispatcher::PI_trigger.others {
+    Taste::coordinates => "38912 5629";
+    Taste::RCMoperationKind => cyclic;
+    Taste::RCMperiod => 100 ms;
+    Taste::Deadline => 0 ms;
+    Taste::InterfaceName => "trigger";
+  };
+  RI_sample : REQUIRES SUBPROGRAM ACCESS interfaceview::IV::NoArgDispatcher::PI_sample.others {
+    Taste::coordinates => "75483 16939";
+    Taste::RCMoperationKind => any;
+    Taste::InterfaceName => "sample";
+    Taste::labelInheritance => "true";
+  };
+PROPERTIES
+  Source_Language => (C);
+  Taste::Active_Interfaces => any;
+END testNoArgDispatcher;
+
+SYSTEM IMPLEMENTATION testNoArgDispatcher.others
+END testNoArgDispatcher.others;
+
+END interfaceview::IV::testNoArgDispatcher;
+
+PACKAGE interfaceview::IV::test_noarg_consumer1
+PUBLIC
+
+WITH Taste;
+WITH DataView;
+WITH TASTE_IV_Properties;
+SUBPROGRAM PI_sample
+PROPERTIES
+  Taste::Associated_Queue_Size => 1;
+END PI_sample;
+
+SUBPROGRAM IMPLEMENTATION PI_sample.others
+PROPERTIES
+  Compute_Execution_Time => 0 ms .. 0 ms;
+END PI_sample.others;
+
+SYSTEM test_noarg_consumer1
+FEATURES
+  PI_sample : PROVIDES SUBPROGRAM ACCESS interfaceview::IV::test_noarg_consumer1::PI_sample.others {
+    Taste::coordinates => "163706 1858";
+    Taste::RCMoperationKind => sporadic;
+    Taste::RCMperiod => 0 ms;
+    Taste::Deadline => 0 ms;
+    Taste::InterfaceName => "sample";
+  };
+PROPERTIES
+  Source_Language => (C);
+  Taste::Active_Interfaces => any;
+END test_noarg_consumer1;
+
+SYSTEM IMPLEMENTATION test_noarg_consumer1.others
+END test_noarg_consumer1.others;
+
+END interfaceview::IV::test_noarg_consumer1;
+
+PACKAGE interfaceview::IV::test_noarg_consumer2
+PUBLIC
+
+WITH Taste;
+WITH DataView;
+WITH TASTE_IV_Properties;
+SUBPROGRAM PI_sample1
+PROPERTIES
+  Taste::Associated_Queue_Size => 1;
+END PI_sample1;
+
+SUBPROGRAM IMPLEMENTATION PI_sample1.others
+PROPERTIES
+  Compute_Execution_Time => 0 ms .. 0 ms;
+END PI_sample1.others;
+
+SYSTEM test_noarg_consumer2
+FEATURES
+  PI_sample1 : PROVIDES SUBPROGRAM ACCESS interfaceview::IV::test_noarg_consumer2::PI_sample1.others {
+    Taste::coordinates => "162575 20332";
+    Taste::RCMoperationKind => sporadic;
+    Taste::RCMperiod => 0 ms;
+    Taste::Deadline => 0 ms;
+    Taste::InterfaceName => "sample1";
+  };
+PROPERTIES
+  Source_Language => (C);
+  Taste::Active_Interfaces => any;
+END test_noarg_consumer2;
+
+SYSTEM IMPLEMENTATION test_noarg_consumer2.others
+END test_noarg_consumer2.others;
+
+END interfaceview::IV::test_noarg_consumer2;
+
 PACKAGE interfaceview::IV
 PUBLIC
 
@@ -868,6 +1048,10 @@ WITH interfaceview::IV::DoubleDispatcher;
 WITH interfaceview::IV::test_doubleProducer;
 WITH interfaceview::IV::test_double_consumer1;
 WITH interfaceview::IV::taste_double_consumer2;
+WITH interfaceview::IV::NoArgDispatcher;
+WITH interfaceview::IV::testNoArgDispatcher;
+WITH interfaceview::IV::test_noarg_consumer1;
+WITH interfaceview::IV::test_noarg_consumer2;
 WITH Taste;
 WITH DataView;
 WITH TASTE_IV_Properties;
@@ -916,7 +1100,7 @@ SUBCOMPONENTS
     Taste::coordinates => "169891 195323 215713 209262";
   };
   DoubleDispatcher : SYSTEM interfaceview::IV::DoubleDispatcher::DoubleDispatcher.others {
-    Taste::coordinates => "97617 26945 145860 56487";
+    Taste::coordinates => "98371 35239 146614 64781";
   };
   test_doubleProducer : SYSTEM interfaceview::IV::test_doubleProducer::test_doubleProducer.others {
     Taste::coordinates => "42057 28572 80255 50609";
@@ -926,6 +1110,18 @@ SUBCOMPONENTS
   };
   taste_double_consumer2 : SYSTEM interfaceview::IV::taste_double_consumer2::taste_double_consumer2.others {
     Taste::coordinates => "164832 48627 205738 65190";
+  };
+  NoArgDispatcher : SYSTEM interfaceview::IV::NoArgDispatcher::NoArgDispatcher.others {
+    Taste::coordinates => "95016 1481 146291 31643";
+  };
+  testNoArgDispatcher : SYSTEM interfaceview::IV::testNoArgDispatcher::testNoArgDispatcher.others {
+    Taste::coordinates => "38912 5629 75483 20709";
+  };
+  test_noarg_consumer1 : SYSTEM interfaceview::IV::test_noarg_consumer1::test_noarg_consumer1.others {
+    Taste::coordinates => "163706 1858 200277 15431";
+  };
+  test_noarg_consumer2 : SYSTEM interfaceview::IV::test_noarg_consumer2::test_noarg_consumer2.others {
+    Taste::coordinates => "162575 16939 204424 30082";
   };
 CONNECTIONS
   MotionCommandDispatcher_PI_dispatch_motion_command_test_MotioncommandDisapatcherProducer_RI_dispatch_motion_command : SUBPROGRAM ACCESS MotionCommandDispatcher.PI_dispatch_motion_command -> test_MotioncommandDisapatcherProducer.RI_dispatch_motion_command {
@@ -956,13 +1152,22 @@ CONNECTIONS
     Taste::coordinates => "145024 185354 157457 185354 157457 198397 169891 198397";
   };
   DoubleDispatcher_PI_dispatch_test_doubleProducer_RI_dispatch : SUBPROGRAM ACCESS DoubleDispatcher.PI_dispatch -> test_doubleProducer.RI_dispatch {
-    Taste::coordinates => "80255 31282 88936 31282 88936 32365 97617 32365";
+    Taste::coordinates => "80255 31282 88936 31282 88936 40659 98371 40659";
   };
   test_double_consumer1_PI_sample_DoubleDispatcher_RI_sample : SUBPROGRAM ACCESS test_double_consumer1.PI_sample -> DoubleDispatcher.RI_sample {
-    Taste::coordinates => "145860 32365 154532 32365 154532 35618 162663 35618";
+    Taste::coordinates => "146614 40659 154532 40659 154532 35618 162663 35618";
   };
   taste_double_consumer2_PI_sample_DoubleDispatcher_RI_sample2 : SUBPROGRAM ACCESS taste_double_consumer2.PI_sample -> DoubleDispatcher.RI_sample2 {
-    Taste::coordinates => "145860 49168 155346 49168 155346 54047 164832 54047";
+    Taste::coordinates => "146614 57462 155346 57462 155346 54047 164832 54047";
+  };
+  NoArgDispatcher_PI_sample_testNoArgDispatcher_RI_sample : SUBPROGRAM ACCESS NoArgDispatcher.PI_sample -> testNoArgDispatcher.RI_sample {
+    Taste::coordinates => "75483 16939 85097 16939 85097 7890 95016 7890";
+  };
+  test_noarg_consumer1_PI_sample_NoArgDispatcher_RI_sample : SUBPROGRAM ACCESS test_noarg_consumer1.PI_sample -> NoArgDispatcher.RI_sample {
+    Taste::coordinates => "146291 5251 154846 5251 154846 1858 163706 1858";
+  };
+  test_noarg_consumer2_PI_sample1_NoArgDispatcher_RI_sample1 : SUBPROGRAM ACCESS test_noarg_consumer2.PI_sample1 -> NoArgDispatcher.RI_sample1 {
+    Taste::coordinates => "146291 20331 154280 20331 154280 20332 162575 20332";
   };
 END interfaceview.others;
 

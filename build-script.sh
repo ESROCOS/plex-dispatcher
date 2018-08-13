@@ -65,17 +65,23 @@ SKELS="./"
 # Check if Dataview references existing files 
 mono $(which taste-extract-asn-from-design.exe) -i "$INTERFACEVIEW" -j /tmp/dv.asn
 
+cd "$SKELS" && rm -f motioncommanddispatcher.zip && zip motioncommanddispatcher motioncommanddispatcher/* && cd $OLDPWD
+
 cd "$SKELS" && rm -f test_motioncommanddispatcherconsumer1.zip && zip test_motioncommanddispatcherconsumer1 test_motioncommanddispatcherconsumer1/* && cd $OLDPWD
 
 cd "$SKELS" && rm -f test_motioncommanddispatcherconsumer2.zip && zip test_motioncommanddispatcherconsumer2 test_motioncommanddispatcherconsumer2/* && cd $OLDPWD
 
 cd "$SKELS" && rm -f test_motioncommanddisapatcherproducer.zip && zip test_motioncommanddisapatcherproducer test_motioncommanddisapatcherproducer/* && cd $OLDPWD
 
+cd "$SKELS" && rm -f rigidbodystatedispatcher.zip && zip rigidbodystatedispatcher rigidbodystatedispatcher/* && cd $OLDPWD
+
 cd "$SKELS" && rm -f test_rigidbodystatedisapatcherproducer.zip && zip test_rigidbodystatedisapatcherproducer test_rigidbodystatedisapatcherproducer/* && cd $OLDPWD
 
 cd "$SKELS" && rm -f test_rigidbodystatedispatcherconsumer1.zip && zip test_rigidbodystatedispatcherconsumer1 test_rigidbodystatedispatcherconsumer1/* && cd $OLDPWD
 
 cd "$SKELS" && rm -f test_rigidbodystatedispatcherconsumer2.zip && zip test_rigidbodystatedispatcherconsumer2 test_rigidbodystatedispatcherconsumer2/* && cd $OLDPWD
+
+cd "$SKELS" && rm -f joystickcommanddispatcher.zip && zip joystickcommanddispatcher joystickcommanddispatcher/* && cd $OLDPWD
 
 cd "$SKELS" && rm -f testjoystickcommanddispatcherproducer.zip && zip testjoystickcommanddispatcherproducer testjoystickcommanddispatcherproducer/* && cd $OLDPWD
 
@@ -90,6 +96,14 @@ cd "$SKELS" && rm -f test_doubleproducer.zip && zip test_doubleproducer test_dou
 cd "$SKELS" && rm -f test_double_consumer1.zip && zip test_double_consumer1 test_double_consumer1/* && cd $OLDPWD
 
 cd "$SKELS" && rm -f taste_double_consumer2.zip && zip taste_double_consumer2 taste_double_consumer2/* && cd $OLDPWD
+
+cd "$SKELS" && rm -f noargdispatcher.zip && zip noargdispatcher noargdispatcher/* && cd $OLDPWD
+
+cd "$SKELS" && rm -f testnoargdispatcher.zip && zip testnoargdispatcher testnoargdispatcher/* && cd $OLDPWD
+
+cd "$SKELS" && rm -f test_noarg_consumer1.zip && zip test_noarg_consumer1 test_noarg_consumer1/* && cd $OLDPWD
+
+cd "$SKELS" && rm -f test_noarg_consumer2.zip && zip test_noarg_consumer2 test_noarg_consumer2/* && cd $OLDPWD
 
 [ ! -z "$CLEANUP" ] && rm -rf binary*
 
@@ -131,15 +145,15 @@ cd "$CWD" && assert-builder-ocarina.py \
 	--interfaceView "$INTERFACEVIEW" \
 	--deploymentView "$DEPLOYMENTVIEW" \
 	-o "$OUTPUTDIR" \
-	--subC motioncommanddispatcher:motioncommanddispatcher.zip \
+	--subC motioncommanddispatcher:"$SKELS"/motioncommanddispatcher.zip \
 	--subC test_motioncommanddispatcherconsumer1:"$SKELS"/test_motioncommanddispatcherconsumer1.zip \
 	--subC test_motioncommanddispatcherconsumer2:"$SKELS"/test_motioncommanddispatcherconsumer2.zip \
 	--subC test_motioncommanddisapatcherproducer:"$SKELS"/test_motioncommanddisapatcherproducer.zip \
-	--subC rigidbodystatedispatcher:rigidbodystatedispatcher.zip \
+	--subC rigidbodystatedispatcher:"$SKELS"/rigidbodystatedispatcher.zip \
 	--subC test_rigidbodystatedisapatcherproducer:"$SKELS"/test_rigidbodystatedisapatcherproducer.zip \
 	--subC test_rigidbodystatedispatcherconsumer1:"$SKELS"/test_rigidbodystatedispatcherconsumer1.zip \
 	--subC test_rigidbodystatedispatcherconsumer2:"$SKELS"/test_rigidbodystatedispatcherconsumer2.zip \
-	--subC joystickcommanddispatcher:joystickcommanddispatcher.zip \
+	--subC joystickcommanddispatcher:"$SKELS"/joystickcommanddispatcher.zip \
 	--subC testjoystickcommanddispatcherproducer:"$SKELS"/testjoystickcommanddispatcherproducer.zip \
 	--subC testjoystickcommanddispatcherconsumer1:"$SKELS"/testjoystickcommanddispatcherconsumer1.zip \
 	--subC testjoystickcommanddispatcherconsumer2:"$SKELS"/testjoystickcommanddispatcherconsumer2.zip \
@@ -147,6 +161,10 @@ cd "$CWD" && assert-builder-ocarina.py \
 	--subCPP test_doubleproducer:"$SKELS"/test_doubleproducer.zip \
 	--subCPP test_double_consumer1:"$SKELS"/test_double_consumer1.zip \
 	--subCPP taste_double_consumer2:"$SKELS"/taste_double_consumer2.zip \
+	--subCPP noargdispatcher:"$SKELS"/noargdispatcher.zip \
+	--subC testnoargdispatcher:"$SKELS"/testnoargdispatcher.zip \
+	--subC test_noarg_consumer1:"$SKELS"/test_noarg_consumer1.zip \
+	--subC test_noarg_consumer2:"$SKELS"/test_noarg_consumer2.zip \
 	$ORCHESTRATOR_OPTIONS
 
 if [ -f user_init_last.sh ]

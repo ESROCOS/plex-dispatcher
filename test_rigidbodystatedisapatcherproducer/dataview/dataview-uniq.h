@@ -2189,7 +2189,7 @@ flag asn1SccBase_samples_Pointcloud_m_Decode(asn1SccBase_samples_Pointcloud_m* p
 typedef struct {
     int nCount; 
     
-    byte arr[200];
+    byte arr[60];
 } asn1SccT_String;
 
 flag asn1SccT_String_Equal(const asn1SccT_String* pVal1, const asn1SccT_String* pVal2);
@@ -2200,8 +2200,8 @@ void asn1SccT_String_Initialize(asn1SccT_String* pVal);
 flag asn1SccT_String_IsConstraintValid(const asn1SccT_String* pVal, int* pErrCode);
 
 #define ERR_UPER_ENCODE_T_STRING		7998  /**/
-#define asn1SccT_String_REQUIRED_BYTES_FOR_ENCODING       201 
-#define asn1SccT_String_REQUIRED_BITS_FOR_ENCODING        1608
+#define asn1SccT_String_REQUIRED_BYTES_FOR_ENCODING       61 
+#define asn1SccT_String_REQUIRED_BITS_FOR_ENCODING        486
 
 flag asn1SccT_String_Encode(const asn1SccT_String* pVal, BitStream* pBitStrm, int* pErrCode, flag bCheckConstraints);
 
@@ -2253,8 +2253,8 @@ flag asn1SccBase_JointLimits_IsConstraintValid(const asn1SccBase_JointLimits* pV
 #define ERR_UPER_ENCODE_BASE_JOINTLIMITS_NAMES_ELM_2		2343  /**/
 #define ERR_UPER_ENCODE_BASE_JOINTLIMITS_ELEMENTS		2495  /**/
 #define ERR_UPER_ENCODE_BASE_JOINTLIMITS_ELEMENTS_ELM_2		2490  /**/
-#define asn1SccBase_JointLimits_REQUIRED_BYTES_FOR_ENCODING       66202 
-#define asn1SccBase_JointLimits_REQUIRED_BITS_FOR_ENCODING        529616
+#define asn1SccBase_JointLimits_REQUIRED_BYTES_FOR_ENCODING       38152 
+#define asn1SccBase_JointLimits_REQUIRED_BITS_FOR_ENCODING        305216
 
 flag asn1SccBase_JointLimits_Encode(const asn1SccBase_JointLimits* pVal, BitStream* pBitStrm, int* pErrCode, flag bCheckConstraints);
 
@@ -2285,8 +2285,8 @@ flag asn1SccBase_JointTransform_IsConstraintValid(const asn1SccBase_JointTransfo
 #define ERR_UPER_ENCODE_BASE_JOINTTRANSFORM_SOURCEFRAME_2		2514  /**/
 #define ERR_UPER_ENCODE_BASE_JOINTTRANSFORM_TARGETFRAME_2		2525  /**/
 #define ERR_UPER_ENCODE_BASE_JOINTTRANSFORM_ROTATIONAXIS_2		2553  /**/
-#define asn1SccBase_JointTransform_REQUIRED_BYTES_FOR_ENCODING       442 
-#define asn1SccBase_JointTransform_REQUIRED_BITS_FOR_ENCODING        3530
+#define asn1SccBase_JointTransform_REQUIRED_BYTES_FOR_ENCODING       161 
+#define asn1SccBase_JointTransform_REQUIRED_BITS_FOR_ENCODING        1286
 
 flag asn1SccBase_JointTransform_Encode(const asn1SccBase_JointTransform* pVal, BitStream* pBitStrm, int* pErrCode, flag bCheckConstraints);
 
@@ -2335,8 +2335,8 @@ flag asn1SccBase_JointTransformVector_IsConstraintValid(const asn1SccBase_JointT
 #define ERR_UPER_ENCODE_BASE_JOINTTRANSFORMVECTOR_NAMES_ELM_2		4736  /**/
 #define ERR_UPER_ENCODE_BASE_JOINTTRANSFORMVECTOR_ELEMENTS		4808  /**/
 #define ERR_UPER_ENCODE_BASE_JOINTTRANSFORMVECTOR_ELEMENTS_ELM_2		4803  /**/
-#define asn1SccBase_JointTransformVector_REQUIRED_BYTES_FOR_ENCODING       128452 
-#define asn1SccBase_JointTransformVector_REQUIRED_BITS_FOR_ENCODING        1027616
+#define asn1SccBase_JointTransformVector_REQUIRED_BYTES_FOR_ENCODING       44302 
+#define asn1SccBase_JointTransformVector_REQUIRED_BITS_FOR_ENCODING        354416
 
 flag asn1SccBase_JointTransformVector_Encode(const asn1SccBase_JointTransformVector* pVal, BitStream* pBitStrm, int* pErrCode, flag bCheckConstraints);
 
@@ -2386,8 +2386,8 @@ flag asn1SccBase_NamedVector_Base_JointTransform_IsConstraintValid(const asn1Scc
 #define ERR_UPER_ENCODE_BASE_NAMEDVECTOR_BASE_JOINTTRANSFORM_NAMES_ELM_2		4827  /**/
 #define ERR_UPER_ENCODE_BASE_NAMEDVECTOR_BASE_JOINTTRANSFORM_ELEMENTS		4899  /**/
 #define ERR_UPER_ENCODE_BASE_NAMEDVECTOR_BASE_JOINTTRANSFORM_ELEMENTS_ELM_2		4894  /**/
-#define asn1SccBase_NamedVector_Base_JointTransform_REQUIRED_BYTES_FOR_ENCODING       128452 
-#define asn1SccBase_NamedVector_Base_JointTransform_REQUIRED_BITS_FOR_ENCODING        1027616
+#define asn1SccBase_NamedVector_Base_JointTransform_REQUIRED_BYTES_FOR_ENCODING       44302 
+#define asn1SccBase_NamedVector_Base_JointTransform_REQUIRED_BITS_FOR_ENCODING        354416
 
 flag asn1SccBase_NamedVector_Base_JointTransform_Encode(const asn1SccBase_NamedVector_Base_JointTransform* pVal, BitStream* pBitStrm, int* pErrCode, flag bCheckConstraints);
 
@@ -2452,8 +2452,8 @@ flag asn1SccBase_JointsTrajectory_IsConstraintValid(const asn1SccBase_JointsTraj
 #define ERR_UPER_ENCODE_BASE_JOINTSTRAJECTORY_ELEMENTS_ELM_2		2653  /**/
 #define ERR_UPER_ENCODE_BASE_JOINTSTRAJECTORY_TIMES_VAL		2686  /**/
 #define ERR_UPER_ENCODE_BASE_JOINTSTRAJECTORY_TIMES_VAL_ELM_2		2681  /**/
-#define asn1SccBase_JointsTrajectory_REQUIRED_BYTES_FOR_ENCODING       2642003 
-#define asn1SccBase_JointsTrajectory_REQUIRED_BITS_FOR_ENCODING        21136024
+#define asn1SccBase_JointsTrajectory_REQUIRED_BYTES_FOR_ENCODING       2613953 
+#define asn1SccBase_JointsTrajectory_REQUIRED_BITS_FOR_ENCODING        20911624
 
 flag asn1SccBase_JointsTrajectory_Encode(const asn1SccBase_JointsTrajectory* pVal, BitStream* pBitStrm, int* pErrCode, flag bCheckConstraints);
 
@@ -2511,8 +2511,8 @@ flag asn1SccBase_NamedVector_Base_JointLimitRange_IsConstraintValid(const asn1Sc
 #define ERR_UPER_ENCODE_BASE_NAMEDVECTOR_BASE_JOINTLIMITRANGE_NAMES_ELM_2		2705  /**/
 #define ERR_UPER_ENCODE_BASE_NAMEDVECTOR_BASE_JOINTLIMITRANGE_ELEMENTS		2857  /**/
 #define ERR_UPER_ENCODE_BASE_NAMEDVECTOR_BASE_JOINTLIMITRANGE_ELEMENTS_ELM_2		2852  /**/
-#define asn1SccBase_NamedVector_Base_JointLimitRange_REQUIRED_BYTES_FOR_ENCODING       66202 
-#define asn1SccBase_NamedVector_Base_JointLimitRange_REQUIRED_BITS_FOR_ENCODING        529616
+#define asn1SccBase_NamedVector_Base_JointLimitRange_REQUIRED_BYTES_FOR_ENCODING       38152 
+#define asn1SccBase_NamedVector_Base_JointLimitRange_REQUIRED_BITS_FOR_ENCODING        305216
 
 flag asn1SccBase_NamedVector_Base_JointLimitRange_Encode(const asn1SccBase_NamedVector_Base_JointLimitRange* pVal, BitStream* pBitStrm, int* pErrCode, flag bCheckConstraints);
 
@@ -2554,8 +2554,8 @@ flag asn1SccBase_NamedVector_Base_JointState_IsConstraintValid(const asn1SccBase
 #define ERR_UPER_ENCODE_BASE_NAMEDVECTOR_BASE_JOINTSTATE_NAMES		2881  /**/
 #define ERR_UPER_ENCODE_BASE_NAMEDVECTOR_BASE_JOINTSTATE_NAMES_ELM_2		2876  /**/
 #define ERR_UPER_ENCODE_BASE_NAMEDVECTOR_BASE_JOINTSTATE_ELEMENTS_2		2959  /**/
-#define asn1SccBase_NamedVector_Base_JointState_REQUIRED_BYTES_FOR_ENCODING       53202 
-#define asn1SccBase_NamedVector_Base_JointState_REQUIRED_BITS_FOR_ENCODING        425616
+#define asn1SccBase_NamedVector_Base_JointState_REQUIRED_BYTES_FOR_ENCODING       25152 
+#define asn1SccBase_NamedVector_Base_JointState_REQUIRED_BITS_FOR_ENCODING        201216
 
 flag asn1SccBase_NamedVector_Base_JointState_Encode(const asn1SccBase_NamedVector_Base_JointState* pVal, BitStream* pBitStrm, int* pErrCode, flag bCheckConstraints);
 
@@ -2604,8 +2604,8 @@ flag asn1SccBase_NamedVector_Base_Wrench_IsConstraintValid(const asn1SccBase_Nam
 #define ERR_UPER_ENCODE_BASE_NAMEDVECTOR_BASE_WRENCH_NAMES_ELM_2		2976  /**/
 #define ERR_UPER_ENCODE_BASE_NAMEDVECTOR_BASE_WRENCH_ELEMENTS		3054  /**/
 #define ERR_UPER_ENCODE_BASE_NAMEDVECTOR_BASE_WRENCH_ELEMENTS_ELM_2		3049  /**/
-#define asn1SccBase_NamedVector_Base_Wrench_REQUIRED_BYTES_FOR_ENCODING       55902 
-#define asn1SccBase_NamedVector_Base_Wrench_REQUIRED_BITS_FOR_ENCODING        447216
+#define asn1SccBase_NamedVector_Base_Wrench_REQUIRED_BYTES_FOR_ENCODING       27852 
+#define asn1SccBase_NamedVector_Base_Wrench_REQUIRED_BITS_FOR_ENCODING        222816
 
 flag asn1SccBase_NamedVector_Base_Wrench_Encode(const asn1SccBase_NamedVector_Base_Wrench* pVal, BitStream* pBitStrm, int* pErrCode, flag bCheckConstraints);
 
@@ -2657,8 +2657,8 @@ flag asn1SccBase_NamedVector_Base_JointTrajectory_IsConstraintValid(const asn1Sc
 #define ERR_UPER_ENCODE_BASE_NAMEDVECTOR_BASE_JOINTTRAJECTORY_NAMES_ELM_2		3073  /**/
 #define ERR_UPER_ENCODE_BASE_NAMEDVECTOR_BASE_JOINTTRAJECTORY_ELEMENTS		3161  /**/
 #define ERR_UPER_ENCODE_BASE_NAMEDVECTOR_BASE_JOINTTRAJECTORY_ELEMENTS_ELM_2		3156  /**/
-#define asn1SccBase_NamedVector_Base_JointTrajectory_REQUIRED_BYTES_FOR_ENCODING       2640402 
-#define asn1SccBase_NamedVector_Base_JointTrajectory_REQUIRED_BITS_FOR_ENCODING        21123216
+#define asn1SccBase_NamedVector_Base_JointTrajectory_REQUIRED_BYTES_FOR_ENCODING       2612352 
+#define asn1SccBase_NamedVector_Base_JointTrajectory_REQUIRED_BITS_FOR_ENCODING        20898816
 
 flag asn1SccBase_NamedVector_Base_JointTrajectory_Encode(const asn1SccBase_NamedVector_Base_JointTrajectory* pVal, BitStream* pBitStrm, int* pErrCode, flag bCheckConstraints);
 
@@ -2703,8 +2703,8 @@ flag asn1SccBase_commands_Joints_IsConstraintValid(const asn1SccBase_commands_Jo
 #define ERR_UPER_ENCODE_BASE_COMMANDS_JOINTS_NAMES_ELM_2		3462  /**/
 #define ERR_UPER_ENCODE_BASE_COMMANDS_JOINTS_ELEMENTS_2		3545  /**/
 #define ERR_UPER_ENCODE_BASE_COMMANDS_JOINTS_TIME_2		3566  /**/
-#define asn1SccBase_commands_Joints_REQUIRED_BYTES_FOR_ENCODING       53210 
-#define asn1SccBase_commands_Joints_REQUIRED_BITS_FOR_ENCODING        425680
+#define asn1SccBase_commands_Joints_REQUIRED_BYTES_FOR_ENCODING       25160 
+#define asn1SccBase_commands_Joints_REQUIRED_BITS_FOR_ENCODING        201280
 
 flag asn1SccBase_commands_Joints_Encode(const asn1SccBase_commands_Joints* pVal, BitStream* pBitStrm, int* pErrCode, flag bCheckConstraints);
 
@@ -2767,8 +2767,8 @@ flag asn1SccBase_samples_RigidBodyState_IsConstraintValid(const asn1SccBase_samp
 #define ERR_UPER_ENCODE_BASE_SAMPLES_RIGIDBODYSTATE_COV_VELOCITY_2		4009  /**/
 #define ERR_UPER_ENCODE_BASE_SAMPLES_RIGIDBODYSTATE_ANGULAR_VELOCITY_2		4037  /**/
 #define ERR_UPER_ENCODE_BASE_SAMPLES_RIGIDBODYSTATE_COV_ANGULAR_VELOCITY_2		4065  /**/
-#define asn1SccBase_samples_RigidBodyState_REQUIRED_BYTES_FOR_ENCODING       1050 
-#define asn1SccBase_samples_RigidBodyState_REQUIRED_BITS_FOR_ENCODING        8400
+#define asn1SccBase_samples_RigidBodyState_REQUIRED_BYTES_FOR_ENCODING       770 
+#define asn1SccBase_samples_RigidBodyState_REQUIRED_BITS_FOR_ENCODING        6156
 
 flag asn1SccBase_samples_RigidBodyState_Encode(const asn1SccBase_samples_RigidBodyState* pVal, BitStream* pBitStrm, int* pErrCode, flag bCheckConstraints);
 
@@ -2828,8 +2828,8 @@ flag asn1SccBase_samples_Wrenches_IsConstraintValid(const asn1SccBase_samples_Wr
 #define ERR_UPER_ENCODE_BASE_SAMPLES_WRENCHES_ELEMENTS		4668  /**/
 #define ERR_UPER_ENCODE_BASE_SAMPLES_WRENCHES_ELEMENTS_ELM_2		4663  /**/
 #define ERR_UPER_ENCODE_BASE_SAMPLES_WRENCHES_TIME_2		4691  /**/
-#define asn1SccBase_samples_Wrenches_REQUIRED_BYTES_FOR_ENCODING       55910 
-#define asn1SccBase_samples_Wrenches_REQUIRED_BITS_FOR_ENCODING        447280
+#define asn1SccBase_samples_Wrenches_REQUIRED_BYTES_FOR_ENCODING       27860 
+#define asn1SccBase_samples_Wrenches_REQUIRED_BITS_FOR_ENCODING        222880
 
 flag asn1SccBase_samples_Wrenches_Encode(const asn1SccBase_samples_Wrenches* pVal, BitStream* pBitStrm, int* pErrCode, flag bCheckConstraints);
 
@@ -2857,8 +2857,8 @@ flag asn1SccBase_samples_frame_frame_attrib_t_IsConstraintValid(const asn1SccBas
 #define ERR_UPER_ENCODE_BASE_SAMPLES_FRAME_FRAME_ATTRIB_T		4723  /**/
 #define ERR_UPER_ENCODE_BASE_SAMPLES_FRAME_FRAME_ATTRIB_T_DATA_2		4708  /**/
 #define ERR_UPER_ENCODE_BASE_SAMPLES_FRAME_FRAME_ATTRIB_T_NAME_VAL_2		4719  /**/
-#define asn1SccBase_samples_frame_frame_attrib_t_REQUIRED_BYTES_FOR_ENCODING       402 
-#define asn1SccBase_samples_frame_frame_attrib_t_REQUIRED_BITS_FOR_ENCODING        3216
+#define asn1SccBase_samples_frame_frame_attrib_t_REQUIRED_BYTES_FOR_ENCODING       122 
+#define asn1SccBase_samples_frame_frame_attrib_t_REQUIRED_BITS_FOR_ENCODING        972
 
 flag asn1SccBase_samples_frame_frame_attrib_t_Encode(const asn1SccBase_samples_frame_frame_attrib_t* pVal, BitStream* pBitStrm, int* pErrCode, flag bCheckConstraints);
 
@@ -2887,8 +2887,8 @@ flag asn1SccBase_JointTransform_m_IsConstraintValid(const asn1SccBase_JointTrans
 #define ERR_UPER_ENCODE_BASE_JOINTTRANSFORM_M_SOURCEFRAME_2		5839  /**/
 #define ERR_UPER_ENCODE_BASE_JOINTTRANSFORM_M_TARGETFRAME_2		5850  /**/
 #define ERR_UPER_ENCODE_BASE_JOINTTRANSFORM_M_ROTATIONAXIS_2		5878  /**/
-#define asn1SccBase_JointTransform_m_REQUIRED_BYTES_FOR_ENCODING       442 
-#define asn1SccBase_JointTransform_m_REQUIRED_BITS_FOR_ENCODING        3530
+#define asn1SccBase_JointTransform_m_REQUIRED_BYTES_FOR_ENCODING       161 
+#define asn1SccBase_JointTransform_m_REQUIRED_BITS_FOR_ENCODING        1286
 
 flag asn1SccBase_JointTransform_m_Encode(const asn1SccBase_JointTransform_m* pVal, BitStream* pBitStrm, int* pErrCode, flag bCheckConstraints);
 
@@ -2916,8 +2916,8 @@ flag asn1SccStd_orogen_typekits_mtype_std_vector_base_JointTransform_IsConstrain
 
 #define ERR_UPER_ENCODE_STD_OROGEN_TYPEKITS_MTYPE_STD_VECTOR_BASE_JOINTTRANSFORM		219  /**/
 #define ERR_UPER_ENCODE_STD_OROGEN_TYPEKITS_MTYPE_STD_VECTOR_BASE_JOINTTRANSFORM_ELM_2		214  /**/
-#define asn1SccStd_orogen_typekits_mtype_std_vector_base_JointTransform_REQUIRED_BYTES_FOR_ENCODING       88251 
-#define asn1SccStd_orogen_typekits_mtype_std_vector_base_JointTransform_REQUIRED_BITS_FOR_ENCODING        706008
+#define asn1SccStd_orogen_typekits_mtype_std_vector_base_JointTransform_REQUIRED_BYTES_FOR_ENCODING       32151 
+#define asn1SccStd_orogen_typekits_mtype_std_vector_base_JointTransform_REQUIRED_BITS_FOR_ENCODING        257208
 
 flag asn1SccStd_orogen_typekits_mtype_std_vector_base_JointTransform_Encode(const asn1SccStd_orogen_typekits_mtype_std_vector_base_JointTransform* pVal, BitStream* pBitStrm, int* pErrCode, flag bCheckConstraints);
 
@@ -2955,8 +2955,8 @@ flag asn1SccBase_JointTransformVector_m_IsConstraintValid(const asn1SccBase_Join
 #define ERR_UPER_ENCODE_BASE_JOINTTRANSFORMVECTOR_M_NAMES		7264  /**/
 #define ERR_UPER_ENCODE_BASE_JOINTTRANSFORMVECTOR_M_NAMES_ELM_2		7259  /**/
 #define ERR_UPER_ENCODE_BASE_JOINTTRANSFORMVECTOR_M_ELEMENTS_2		7337  /**/
-#define asn1SccBase_JointTransformVector_m_REQUIRED_BYTES_FOR_ENCODING       128452 
-#define asn1SccBase_JointTransformVector_m_REQUIRED_BITS_FOR_ENCODING        1027616
+#define asn1SccBase_JointTransformVector_m_REQUIRED_BYTES_FOR_ENCODING       44302 
+#define asn1SccBase_JointTransformVector_m_REQUIRED_BITS_FOR_ENCODING        354416
 
 flag asn1SccBase_JointTransformVector_m_Encode(const asn1SccBase_JointTransformVector_m* pVal, BitStream* pBitStrm, int* pErrCode, flag bCheckConstraints);
 
@@ -2996,8 +2996,8 @@ flag asn1SccBase_NamedVector_base_JointTransform_m_IsConstraintValid(const asn1S
 #define ERR_UPER_ENCODE_BASE_NAMEDVECTOR_BASE_JOINTTRANSFORM_M_NAMES		7359  /**/
 #define ERR_UPER_ENCODE_BASE_NAMEDVECTOR_BASE_JOINTTRANSFORM_M_NAMES_ELM_2		7354  /**/
 #define ERR_UPER_ENCODE_BASE_NAMEDVECTOR_BASE_JOINTTRANSFORM_M_ELEMENTS_2		7432  /**/
-#define asn1SccBase_NamedVector_base_JointTransform_m_REQUIRED_BYTES_FOR_ENCODING       128452 
-#define asn1SccBase_NamedVector_base_JointTransform_m_REQUIRED_BITS_FOR_ENCODING        1027616
+#define asn1SccBase_NamedVector_base_JointTransform_m_REQUIRED_BYTES_FOR_ENCODING       44302 
+#define asn1SccBase_NamedVector_base_JointTransform_m_REQUIRED_BITS_FOR_ENCODING        354416
 
 flag asn1SccBase_NamedVector_base_JointTransform_m_Encode(const asn1SccBase_NamedVector_base_JointTransform_m* pVal, BitStream* pBitStrm, int* pErrCode, flag bCheckConstraints);
 
@@ -3059,8 +3059,8 @@ flag asn1SccBase_samples_RigidBodyState_m_IsConstraintValid(const asn1SccBase_sa
 #define ERR_UPER_ENCODE_BASE_SAMPLES_RIGIDBODYSTATE_M_COV_VELOCITY_2		7103  /**/
 #define ERR_UPER_ENCODE_BASE_SAMPLES_RIGIDBODYSTATE_M_ANGULAR_VELOCITY_2		7131  /**/
 #define ERR_UPER_ENCODE_BASE_SAMPLES_RIGIDBODYSTATE_M_COV_ANGULAR_VELOCITY_2		7159  /**/
-#define asn1SccBase_samples_RigidBodyState_m_REQUIRED_BYTES_FOR_ENCODING       1050 
-#define asn1SccBase_samples_RigidBodyState_m_REQUIRED_BITS_FOR_ENCODING        8400
+#define asn1SccBase_samples_RigidBodyState_m_REQUIRED_BYTES_FOR_ENCODING       770 
+#define asn1SccBase_samples_RigidBodyState_m_REQUIRED_BITS_FOR_ENCODING        6156
 
 flag asn1SccBase_samples_RigidBodyState_m_Encode(const asn1SccBase_samples_RigidBodyState_m* pVal, BitStream* pBitStrm, int* pErrCode, flag bCheckConstraints);
 
@@ -3108,8 +3108,8 @@ flag asn1SccBase_NamedVector_base_Wrench_m_IsConstraintValid(const asn1SccBase_N
 #define ERR_UPER_ENCODE_BASE_NAMEDVECTOR_BASE_WRENCH_M_NAMES		7454  /**/
 #define ERR_UPER_ENCODE_BASE_NAMEDVECTOR_BASE_WRENCH_M_NAMES_ELM_2		7449  /**/
 #define ERR_UPER_ENCODE_BASE_NAMEDVECTOR_BASE_WRENCH_M_ELEMENTS_2		7533  /**/
-#define asn1SccBase_NamedVector_base_Wrench_m_REQUIRED_BYTES_FOR_ENCODING       55902 
-#define asn1SccBase_NamedVector_base_Wrench_m_REQUIRED_BITS_FOR_ENCODING        447216
+#define asn1SccBase_NamedVector_base_Wrench_m_REQUIRED_BYTES_FOR_ENCODING       27852 
+#define asn1SccBase_NamedVector_base_Wrench_m_REQUIRED_BITS_FOR_ENCODING        222816
 
 flag asn1SccBase_NamedVector_base_Wrench_m_Encode(const asn1SccBase_NamedVector_base_Wrench_m* pVal, BitStream* pBitStrm, int* pErrCode, flag bCheckConstraints);
 
@@ -3152,8 +3152,8 @@ flag asn1SccBase_samples_Wrenches_m_IsConstraintValid(const asn1SccBase_samples_
 #define ERR_UPER_ENCODE_BASE_SAMPLES_WRENCHES_M_NAMES_ELM_2		7647  /**/
 #define ERR_UPER_ENCODE_BASE_SAMPLES_WRENCHES_M_ELEMENTS_2		7731  /**/
 #define ERR_UPER_ENCODE_BASE_SAMPLES_WRENCHES_M_TIME_2		7752  /**/
-#define asn1SccBase_samples_Wrenches_m_REQUIRED_BYTES_FOR_ENCODING       55910 
-#define asn1SccBase_samples_Wrenches_m_REQUIRED_BITS_FOR_ENCODING        447280
+#define asn1SccBase_samples_Wrenches_m_REQUIRED_BYTES_FOR_ENCODING       27860 
+#define asn1SccBase_samples_Wrenches_m_REQUIRED_BITS_FOR_ENCODING        222880
 
 flag asn1SccBase_samples_Wrenches_m_Encode(const asn1SccBase_samples_Wrenches_m* pVal, BitStream* pBitStrm, int* pErrCode, flag bCheckConstraints);
 
@@ -3740,8 +3740,8 @@ flag asn1SccBase_samples_frame_Frame_IsConstraintValid(const asn1SccBase_samples
 #define ERR_UPER_ENCODE_BASE_SAMPLES_FRAME_FRAME_ROW_SIZE_2		5060  /**/
 #define ERR_UPER_ENCODE_BASE_SAMPLES_FRAME_FRAME_FRAME_MODE_2		5071  /**/
 #define ERR_UPER_ENCODE_BASE_SAMPLES_FRAME_FRAME_FRAME_STATUS_2		5082  /**/
-#define asn1SccBase_samples_frame_Frame_REQUIRED_BYTES_FOR_ENCODING       80635 
-#define asn1SccBase_samples_frame_Frame_REQUIRED_BITS_FOR_ENCODING        645078
+#define asn1SccBase_samples_frame_Frame_REQUIRED_BYTES_FOR_ENCODING       24535 
+#define asn1SccBase_samples_frame_Frame_REQUIRED_BITS_FOR_ENCODING        196278
 
 flag asn1SccBase_samples_frame_Frame_Encode(const asn1SccBase_samples_frame_Frame* pVal, BitStream* pBitStrm, int* pErrCode, flag bCheckConstraints);
 
@@ -3805,8 +3805,8 @@ flag asn1SccBase_samples_frame_FramePair_IsConstraintValid(const asn1SccBase_sam
 #define ERR_UPER_ENCODE_BASE_SAMPLES_FRAME_FRAMEPAIR_FIRST_2		5294  /**/
 #define ERR_UPER_ENCODE_BASE_SAMPLES_FRAME_FRAMEPAIR_SECOND_2		5479  /**/
 #define ERR_UPER_ENCODE_BASE_SAMPLES_FRAME_FRAMEPAIR_ID_2		5490  /**/
-#define asn1SccBase_samples_frame_FramePair_REQUIRED_BYTES_FOR_ENCODING       161282 
-#define asn1SccBase_samples_frame_FramePair_REQUIRED_BITS_FOR_ENCODING        1290252
+#define asn1SccBase_samples_frame_FramePair_REQUIRED_BYTES_FOR_ENCODING       49082 
+#define asn1SccBase_samples_frame_FramePair_REQUIRED_BITS_FOR_ENCODING        392652
 
 flag asn1SccBase_samples_frame_FramePair_Encode(const asn1SccBase_samples_frame_FramePair* pVal, BitStream* pBitStrm, int* pErrCode, flag bCheckConstraints);
 
@@ -3818,29 +3818,29 @@ flag asn1SccBase_samples_frame_FramePair_Encode(const asn1SccBase_samples_frame_
 flag asn1SccBase_samples_frame_FramePair_Decode(asn1SccBase_samples_frame_FramePair* pVal, BitStream* pBitStrm, int* pErrCode);
 
 typedef struct {
-    asn1SccT_UInt32 sec;
-    asn1SccT_UInt32 nsec;
+    asn1SccT_UInt32 secs;
+    asn1SccT_UInt32 nsecs;
 } asn1SccT_Time;
 
 flag asn1SccT_Time_Equal(const asn1SccT_Time* pVal1, const asn1SccT_Time* pVal2);
 
 void asn1SccT_Time_Initialize(asn1SccT_Time* pVal);
 
-#define ERR_T_TIME_SEC		8004  /**/
-#define ERR_T_TIME_NSEC		8015  /**/
+#define ERR_T_TIME_SECS		8004  /**/
+#define ERR_T_TIME_NSECS		8015  /**/
 flag asn1SccT_Time_IsConstraintValid(const asn1SccT_Time* pVal, int* pErrCode);
 
 #define ERR_UPER_ENCODE_T_TIME		8026  /**/
-#define ERR_UPER_ENCODE_T_TIME_SEC_2		8011  /**/
-#define ERR_UPER_ENCODE_T_TIME_NSEC_2		8022  /**/
+#define ERR_UPER_ENCODE_T_TIME_SECS_2		8011  /**/
+#define ERR_UPER_ENCODE_T_TIME_NSECS_2		8022  /**/
 #define asn1SccT_Time_REQUIRED_BYTES_FOR_ENCODING       8 
 #define asn1SccT_Time_REQUIRED_BITS_FOR_ENCODING        64
 
 flag asn1SccT_Time_Encode(const asn1SccT_Time* pVal, BitStream* pBitStrm, int* pErrCode, flag bCheckConstraints);
 
 #define ERR_UPER_DECODE_T_TIME		8027  /**/
-#define ERR_UPER_DECODE_T_TIME_SEC_2		8012  /**/
-#define ERR_UPER_DECODE_T_TIME_NSEC_2		8023  /**/
+#define ERR_UPER_DECODE_T_TIME_SECS_2		8012  /**/
+#define ERR_UPER_DECODE_T_TIME_NSECS_2		8023  /**/
 flag asn1SccT_Time_Decode(asn1SccT_Time* pVal, BitStream* pBitStrm, int* pErrCode);
 typedef asn1SccT_UInt32 asn1SccDummyBase_T;
 
@@ -4166,8 +4166,8 @@ flag asn1SccJoystickCommand_IsConstraintValid(const asn1SccJoystickCommand* pVal
 #define ERR_UPER_ENCODE_JOYSTICKCOMMAND_DEVICEIDENTIFIER_2		8176  /**/
 #define ERR_UPER_ENCODE_JOYSTICKCOMMAND_AXES_2		8222  /**/
 #define ERR_UPER_ENCODE_JOYSTICKCOMMAND_BUTTONS_2		8268  /**/
-#define asn1SccJoystickCommand_REQUIRED_BYTES_FOR_ENCODING       2161 
-#define asn1SccJoystickCommand_REQUIRED_BITS_FOR_ENCODING        17288
+#define asn1SccJoystickCommand_REQUIRED_BYTES_FOR_ENCODING       2021 
+#define asn1SccJoystickCommand_REQUIRED_BITS_FOR_ENCODING        16166
 
 flag asn1SccJoystickCommand_Encode(const asn1SccJoystickCommand* pVal, BitStream* pBitStrm, int* pErrCode, flag bCheckConstraints);
 

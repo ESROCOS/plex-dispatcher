@@ -1247,7 +1247,7 @@ flag asn1SccBase_samples_Pointcloud_m_IsConstraintValid(const asn1SccBase_sample
 typedef struct {
     int nCount; 
     
-    byte arr[200];
+    byte arr[60];
 } asn1SccT_String;
 
 flag asn1SccT_String_Equal(const asn1SccT_String* pVal1, const asn1SccT_String* pVal2);
@@ -2267,16 +2267,16 @@ void asn1SccBase_samples_frame_FramePair_Initialize(asn1SccBase_samples_frame_Fr
 flag asn1SccBase_samples_frame_FramePair_IsConstraintValid(const asn1SccBase_samples_frame_FramePair* pVal, int* pErrCode);
 
 typedef struct {
-    asn1SccT_UInt32 sec;
-    asn1SccT_UInt32 nsec;
+    asn1SccT_UInt32 secs;
+    asn1SccT_UInt32 nsecs;
 } asn1SccT_Time;
 
 flag asn1SccT_Time_Equal(const asn1SccT_Time* pVal1, const asn1SccT_Time* pVal2);
 
 void asn1SccT_Time_Initialize(asn1SccT_Time* pVal);
 
-#define ERR_T_TIME_SEC		8032  /**/
-#define ERR_T_TIME_NSEC		8043  /**/
+#define ERR_T_TIME_SECS		8032  /**/
+#define ERR_T_TIME_NSECS		8043  /**/
 flag asn1SccT_Time_IsConstraintValid(const asn1SccT_Time* pVal, int* pErrCode);
 typedef asn1SccT_UInt32 asn1SccDummyBase_T;
 

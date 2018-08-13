@@ -15,9 +15,9 @@ void motioncommanddispatcher_startup();
 
 void motioncommanddispatcher_PI_dispatch_motion_command(const asn1SccBase_commands_Motion2D *);
 
-extern void motioncommanddispatcher_RI_sample(const asn1SccBase_samples_Motion2D *);
+extern void motioncommanddispatcher_RI_sample(const asn1SccBase_commands_Motion2D *);
 
-extern void motioncommanddispatcher_RI_sample1(const asn1SccBase_samples_Motion2D *);
+extern void motioncommanddispatcher_RI_sample1(const asn1SccBase_commands_Motion2D *);
 
 #ifdef __cplusplus
 }

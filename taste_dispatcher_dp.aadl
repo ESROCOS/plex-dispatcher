@@ -61,6 +61,20 @@ END test_double_dispatcher.others;
 
 END deploymentview::DV::Node4;
 
+PACKAGE deploymentview::DV::Node5
+PUBLIC
+
+WITH Taste;
+WITH Deployment;
+WITH TASTE_DV_Properties;
+PROCESS test_noarg_dispatcher
+END test_noarg_dispatcher;
+
+PROCESS IMPLEMENTATION test_noarg_dispatcher.others
+END test_noarg_dispatcher.others;
+
+END deploymentview::DV::Node5;
+
 PACKAGE deploymentview::DV
 PUBLIC
 
@@ -85,6 +99,11 @@ WITH interfaceview::IV::test_doubleProducer;
 WITH interfaceview::IV::test_double_consumer1;
 WITH interfaceview::IV::taste_double_consumer2;
 WITH deploymentview::DV::Node4;
+WITH interfaceview::IV::NoArgDispatcher;
+WITH interfaceview::IV::testNoArgDispatcher;
+WITH interfaceview::IV::test_noarg_consumer1;
+WITH interfaceview::IV::test_noarg_consumer2;
+WITH deploymentview::DV::Node5;
 WITH Taste;
 WITH Deployment;
 WITH interfaceview::IV;
@@ -107,11 +126,11 @@ SUBCOMPONENTS
     Taste::FunctionName => "test_MotioncommandDisapatcherProducer";
   };
   test_motion_command_dispatcher : PROCESS deploymentview::DV::Node1::test_motion_command_dispatcher.others {
-    Taste::coordinates => "94805 78989 134781 97339";
+    Taste::coordinates => "15631 55991 55607 74341";
     Deployment::Port_Number => 0;
   };
   x86_linux : PROCESSOR ocarina_processors_x86::x86.linux {
-    Taste::coordinates => "93047 68129 145728 103417";
+    Taste::coordinates => "13873 45131 66554 80419";
   };
 PROPERTIES
   Taste::APLC_Binding => (reference (test_motion_command_dispatcher)) APPLIES TO IV_MotionCommandDispatcher;
@@ -139,11 +158,11 @@ SUBCOMPONENTS
     Taste::FunctionName => "test_RigidBodyStateDispatcherConsumer2";
   };
   test_rigid_body_state_dispatcher : PROCESS deploymentview::DV::Node2::test_rigid_body_state_dispatcher.others {
-    Taste::coordinates => "168190 80919 208174 109899";
+    Taste::coordinates => "102965 55282 142949 84262";
     Deployment::Port_Number => 0;
   };
   x86_linux : PROCESSOR ocarina_processors_x86::x86.linux {
-    Taste::coordinates => "163192 67552 213172 114508";
+    Taste::coordinates => "97967 41915 147947 88871";
   };
 PROPERTIES
   Taste::APLC_Binding => (reference (test_rigid_body_state_dispatcher)) APPLIES TO IV_RigidBodyStateDispatcher;
@@ -171,11 +190,11 @@ SUBCOMPONENTS
     Taste::FunctionName => "testJoystickCommandDispatcherConsumer2";
   };
   test_joystick_command_dispatcher : PROCESS deploymentview::DV::Node3::test_joystick_command_dispatcher.others {
-    Taste::coordinates => "102899 136919 141384 162428";
+    Taste::coordinates => "22971 120707 61456 146216";
     Deployment::Port_Number => 0;
   };
   x86_linux : PROCESSOR ocarina_processors_x86::x86.linux {
-    Taste::coordinates => "98088 129631 146195 166072";
+    Taste::coordinates => "18160 113419 66267 149860";
   };
 PROPERTIES
   Taste::APLC_Binding => (reference (test_joystick_command_dispatcher)) APPLIES TO IV_JoystickCommandDispatcher;
@@ -203,11 +222,11 @@ SUBCOMPONENTS
     Taste::FunctionName => "taste_double_consumer2";
   };
   test_double_dispatcher : PROCESS deploymentview::DV::Node4::test_double_dispatcher.others {
-    Taste::coordinates => "177644 149869 223166 173534";
+    Taste::coordinates => "104125 128002 149647 151667";
     Deployment::Port_Number => 0;
   };
   x86_linux : PROCESSOR ocarina_processors_x86::x86.linux {
-    Taste::coordinates => "171954 143107 228856 176915";
+    Taste::coordinates => "98435 121240 155337 155048";
   };
 PROPERTIES
   Taste::APLC_Binding => (reference (test_double_dispatcher)) APPLIES TO IV_DoubleDispatcher;
@@ -217,22 +236,57 @@ PROPERTIES
   Actual_Processor_Binding => (reference (x86_linux)) APPLIES TO test_double_dispatcher;
 END Node4.others;
 
+SYSTEM Node5
+END Node5;
+
+SYSTEM IMPLEMENTATION Node5.others
+SUBCOMPONENTS
+  IV_NoArgDispatcher : SYSTEM interfaceview::IV::NoArgDispatcher::NoArgDispatcher.others {
+    Taste::FunctionName => "NoArgDispatcher";
+  };
+  IV_testNoArgDispatcher : SYSTEM interfaceview::IV::testNoArgDispatcher::testNoArgDispatcher.others {
+    Taste::FunctionName => "testNoArgDispatcher";
+  };
+  IV_test_noarg_consumer1 : SYSTEM interfaceview::IV::test_noarg_consumer1::test_noarg_consumer1.others {
+    Taste::FunctionName => "test_noarg_consumer1";
+  };
+  IV_test_noarg_consumer2 : SYSTEM interfaceview::IV::test_noarg_consumer2::test_noarg_consumer2.others {
+    Taste::FunctionName => "test_noarg_consumer2";
+  };
+  test_noarg_dispatcher : PROCESS deploymentview::DV::Node5::test_noarg_dispatcher.others {
+    Taste::coordinates => "211766 56204 258818 87979";
+    Deployment::Port_Number => 0;
+  };
+  x86_linux : PROCESSOR ocarina_processors_x86::x86.linux {
+    Taste::coordinates => "205884 47125 264699 92518";
+  };
+PROPERTIES
+  Taste::APLC_Binding => (reference (test_noarg_dispatcher)) APPLIES TO IV_NoArgDispatcher;
+  Taste::APLC_Binding => (reference (test_noarg_dispatcher)) APPLIES TO IV_testNoArgDispatcher;
+  Taste::APLC_Binding => (reference (test_noarg_dispatcher)) APPLIES TO IV_test_noarg_consumer1;
+  Taste::APLC_Binding => (reference (test_noarg_dispatcher)) APPLIES TO IV_test_noarg_consumer2;
+  Actual_Processor_Binding => (reference (x86_linux)) APPLIES TO test_noarg_dispatcher;
+END Node5.others;
+
 SYSTEM deploymentview
 END deploymentview;
 
 SYSTEM IMPLEMENTATION deploymentview.others
 SUBCOMPONENTS
   Node1 : SYSTEM Node1.others {
-    Taste::coordinates => "89014 60495 151489 109611";
+    Taste::coordinates => "9840 37497 72315 86613";
   };
   Node2 : SYSTEM Node2.others {
-    Taste::coordinates => "159447 60927 217637 122862";
+    Taste::coordinates => "94222 35290 152412 97225";
   };
   Node3 : SYSTEM Node3.others {
-    Taste::coordinates => "89878 121997 153973 176875";
+    Taste::coordinates => "9950 105785 74045 160663";
   };
   Node4 : SYSTEM Node4.others {
-    Taste::coordinates => "164841 133448 235969 181745";
+    Taste::coordinates => "91322 111581 162450 159878";
+  };
+  Node5 : SYSTEM Node5.others {
+    Taste::coordinates => "198532 34155 272051 99003";
   };
   interfaceview : SYSTEM interfaceview::IV::interfaceview.others;
 END deploymentview.others;

@@ -41,6 +41,7 @@ esrocos_export_function("MotionCommandDispatcher" "share/taste_components/dispat
 esrocos_export_function("RigidBodyStateDispatcher" "share/taste_components/dispatchers")
 esrocos_export_function("JoystickCommandDispatcher" "share/taste_components/dispatchers")
 esrocos_export_function("DoubleDispatcher" "share/taste_components/dispatchers")
+esrocos_export_function("NoArgDispatcher" "share/taste_components/dispatchers")
 
 #uncomment to export PKG-CONFIG-file
 esrocos_export_pkgconfig( VERSION 1.0
