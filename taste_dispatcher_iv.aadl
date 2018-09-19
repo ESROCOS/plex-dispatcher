@@ -485,7 +485,7 @@ FEATURES
     Taste::labelInheritance => "false";
   };
   RI_sample1 : REQUIRES SUBPROGRAM ACCESS interfaceview::IV::testJoystickCommandDispatcherConsumer2::PI_sample1.others {
-    Taste::coordinates => "145024 185354";
+    Taste::coordinates => "145024 186293";
     Taste::RCMoperationKind => any;
     Taste::InterfaceName => "sample1";
     Taste::labelInheritance => "false";
@@ -493,7 +493,7 @@ FEATURES
 PROPERTIES
   Source_Language => (C);
   Taste::Active_Interfaces => any;
-  Source_Text => ("joystickdispatcher.zip");
+  Source_Text => ("joystickcommanddispatcher.zip");
 END JoystickCommandDispatcher;
 
 SYSTEM IMPLEMENTATION JoystickCommandDispatcher.others
@@ -583,7 +583,7 @@ END PI_sample.others;
 SYSTEM testJoystickCommandDispatcherConsumer1
 FEATURES
   PI_sample : PROVIDES SUBPROGRAM ACCESS interfaceview::IV::testJoystickCommandDispatcherConsumer1::PI_sample.others {
-    Taste::coordinates => "168456 177951";
+    Taste::coordinates => "169395 179516";
     Taste::RCMoperationKind => sporadic;
     Taste::RCMperiod => 0 ms;
     Taste::Deadline => 0 ms;
@@ -1029,6 +1029,193 @@ END test_noarg_consumer2.others;
 
 END interfaceview::IV::test_noarg_consumer2;
 
+PACKAGE interfaceview::IV::JoystickCommandDispatcher3
+PUBLIC
+
+WITH interfaceview::IV::Function1;
+WITH Taste;
+WITH DataView;
+WITH TASTE_IV_Properties;
+SUBPROGRAM PI_dispatch
+FEATURES
+  sample : IN PARAMETER DataView::JoystickCommand {
+    Taste::encoding => NATIVE;
+  };
+PROPERTIES
+  Taste::Associated_Queue_Size => 1;
+END PI_dispatch;
+
+SUBPROGRAM IMPLEMENTATION PI_dispatch.others
+PROPERTIES
+  Compute_Execution_Time => 0 ms .. 0 ms;
+END PI_dispatch.others;
+
+SUBPROGRAM RI_sample0
+FEATURES
+  sample : IN PARAMETER DataView::JoystickCommand {
+    Taste::encoding => NATIVE;
+  };
+END RI_sample0;
+
+SUBPROGRAM IMPLEMENTATION RI_sample0.others
+END RI_sample0.others;
+
+SUBPROGRAM RI_sample1
+FEATURES
+  sample : IN PARAMETER DataView::JoystickCommand {
+    Taste::encoding => NATIVE;
+  };
+END RI_sample1;
+
+SUBPROGRAM IMPLEMENTATION RI_sample1.others
+END RI_sample1.others;
+
+SUBPROGRAM RI_sample2
+FEATURES
+  sample : IN PARAMETER DataView::JoystickCommand {
+    Taste::encoding => NATIVE;
+  };
+END RI_sample2;
+
+SUBPROGRAM IMPLEMENTATION RI_sample2.others
+END RI_sample2.others;
+
+SYSTEM JoystickCommandDispatcher3
+FEATURES
+  PI_dispatch : PROVIDES SUBPROGRAM ACCESS interfaceview::IV::JoystickCommandDispatcher3::PI_dispatch.others {
+    Taste::coordinates => "230685 75570";
+    Taste::RCMoperationKind => sporadic;
+    Taste::RCMperiod => 0 ms;
+    Taste::Deadline => 0 ms;
+    Taste::InterfaceName => "dispatch";
+  };
+  RI_sample0 : REQUIRES SUBPROGRAM ACCESS interfaceview::IV::Function1::PI_sample.others {
+    Taste::coordinates => "252519 106975";
+    Taste::RCMoperationKind => any;
+    Taste::InterfaceName => "sample0";
+    Taste::labelInheritance => "false";
+  };
+  RI_sample1 : REQUIRES SUBPROGRAM ACCESS interfaceview::IV::Function1::PI_sample.others {
+    Taste::coordinates => "271030 106975";
+    Taste::RCMoperationKind => any;
+    Taste::InterfaceName => "sample1";
+    Taste::labelInheritance => "false";
+  };
+  RI_sample2 : REQUIRES SUBPROGRAM ACCESS interfaceview::IV::Function1::PI_sample.others {
+    Taste::coordinates => "239787 106975";
+    Taste::RCMoperationKind => any;
+    Taste::InterfaceName => "sample2";
+    Taste::labelInheritance => "false";
+  };
+PROPERTIES
+  Source_Language => (C);
+  Taste::Active_Interfaces => any;
+  Source_Text => ("joystickcommanddispatcher3.zip");
+END JoystickCommandDispatcher3;
+
+SYSTEM IMPLEMENTATION JoystickCommandDispatcher3.others
+END JoystickCommandDispatcher3.others;
+
+END interfaceview::IV::JoystickCommandDispatcher3;
+
+PACKAGE interfaceview::IV::Function2
+PUBLIC
+
+WITH interfaceview::IV::JoystickCommandDispatcher3;
+WITH Taste;
+WITH DataView;
+WITH TASTE_IV_Properties;
+SUBPROGRAM PI_trigger
+PROPERTIES
+  Taste::Associated_Queue_Size => 1;
+END PI_trigger;
+
+SUBPROGRAM IMPLEMENTATION PI_trigger.others
+PROPERTIES
+  Compute_Execution_Time => 0 ms .. 0 ms;
+END PI_trigger.others;
+
+SUBPROGRAM RI_dispatch
+FEATURES
+  sample : IN PARAMETER DataView::JoystickCommand {
+    Taste::encoding => NATIVE;
+  };
+END RI_dispatch;
+
+SUBPROGRAM IMPLEMENTATION RI_dispatch.others
+END RI_dispatch.others;
+
+SYSTEM Function2
+FEATURES
+  PI_trigger : PROVIDES SUBPROGRAM ACCESS interfaceview::IV::Function2::PI_trigger.others {
+    Taste::coordinates => "223620 36124";
+    Taste::RCMoperationKind => cyclic;
+    Taste::RCMperiod => 200 ms;
+    Taste::Deadline => 0 ms;
+    Taste::InterfaceName => "trigger";
+  };
+  RI_dispatch : REQUIRES SUBPROGRAM ACCESS interfaceview::IV::JoystickCommandDispatcher3::PI_dispatch.others {
+    Taste::coordinates => "250335 56118";
+    Taste::RCMoperationKind => any;
+    Taste::InterfaceName => "dispatch";
+    Taste::labelInheritance => "true";
+  };
+PROPERTIES
+  Source_Language => (C);
+  Taste::Active_Interfaces => any;
+END Function2;
+
+SYSTEM IMPLEMENTATION Function2.others
+SUBCOMPONENTS
+  init_val : DATA DataView::T_Float {
+    Taste::FS_Default_Value => "0.0";
+  };
+  inc : DATA DataView::T_Float {
+    Taste::FS_Default_Value => "0.01";
+  };
+END Function2.others;
+
+END interfaceview::IV::Function2;
+
+PACKAGE interfaceview::IV::Function1
+PUBLIC
+
+WITH Taste;
+WITH DataView;
+WITH TASTE_IV_Properties;
+SUBPROGRAM PI_sample
+FEATURES
+  sample : IN PARAMETER DataView::JoystickCommand {
+    Taste::encoding => NATIVE;
+  };
+PROPERTIES
+  Taste::Associated_Queue_Size => 1;
+END PI_sample;
+
+SUBPROGRAM IMPLEMENTATION PI_sample.others
+PROPERTIES
+  Compute_Execution_Time => 0 ms .. 0 ms;
+END PI_sample.others;
+
+SYSTEM Function1
+FEATURES
+  PI_sample : PROVIDES SUBPROGRAM ACCESS interfaceview::IV::Function1::PI_sample.others {
+    Taste::coordinates => "269649 179025";
+    Taste::RCMoperationKind => sporadic;
+    Taste::RCMperiod => 0 ms;
+    Taste::Deadline => 0 ms;
+    Taste::InterfaceName => "sample";
+  };
+PROPERTIES
+  Source_Language => (C);
+  Taste::Active_Interfaces => any;
+END Function1;
+
+SYSTEM IMPLEMENTATION Function1.others
+END Function1.others;
+
+END interfaceview::IV::Function1;
+
 PACKAGE interfaceview::IV
 PUBLIC
 
@@ -1052,6 +1239,9 @@ WITH interfaceview::IV::NoArgDispatcher;
 WITH interfaceview::IV::testNoArgDispatcher;
 WITH interfaceview::IV::test_noarg_consumer1;
 WITH interfaceview::IV::test_noarg_consumer2;
+WITH interfaceview::IV::JoystickCommandDispatcher3;
+WITH interfaceview::IV::Function2;
+WITH interfaceview::IV::Function1;
 WITH Taste;
 WITH DataView;
 WITH TASTE_IV_Properties;
@@ -1094,7 +1284,7 @@ SUBCOMPONENTS
     Taste::coordinates => "15556 176755 72798 196749";
   };
   testJoystickCommandDispatcherConsumer1 : SYSTEM interfaceview::IV::testJoystickCommandDispatcherConsumer1::testJoystickCommandDispatcherConsumer1.others {
-    Taste::coordinates => "168456 177951 215054 191699";
+    Taste::coordinates => "169395 179516 215993 193264";
   };
   testJoystickCommandDispatcherConsumer2 : SYSTEM interfaceview::IV::testJoystickCommandDispatcherConsumer2::testJoystickCommandDispatcherConsumer2.others {
     Taste::coordinates => "169891 195323 215713 209262";
@@ -1123,6 +1313,15 @@ SUBCOMPONENTS
   test_noarg_consumer2 : SYSTEM interfaceview::IV::test_noarg_consumer2::test_noarg_consumer2.others {
     Taste::coordinates => "162575 16939 204424 30082";
   };
+  JoystickCommandDispatcher3 : SYSTEM interfaceview::IV::JoystickCommandDispatcher3::JoystickCommandDispatcher3.others {
+    Taste::coordinates => "230685 75570 276355 106975";
+  };
+  Function2 : SYSTEM interfaceview::IV::Function2::Function2.others {
+    Taste::coordinates => "223620 36124 280862 56118";
+  };
+  Function1 : SYSTEM interfaceview::IV::Function1::Function1.others {
+    Taste::coordinates => "269649 179025 285724 183768";
+  };
 CONNECTIONS
   MotionCommandDispatcher_PI_dispatch_motion_command_test_MotioncommandDisapatcherProducer_RI_dispatch_motion_command : SUBPROGRAM ACCESS MotionCommandDispatcher.PI_dispatch_motion_command -> test_MotioncommandDisapatcherProducer.RI_dispatch_motion_command {
     Taste::coordinates => "76781 79936 88950 79936 88950 79903 89388 79903 89388 86158 95783 86158";
@@ -1146,10 +1345,10 @@ CONNECTIONS
     Taste::coordinates => "72714 176755 84765 176755 84765 178662 96816 178662";
   };
   testJoystickCommandDispatcherConsumer1_PI_sample_JoystickCommandDispatcher_RI_sample : SUBPROGRAM ACCESS testJoystickCommandDispatcherConsumer1.PI_sample -> JoystickCommandDispatcher.RI_sample {
-    Taste::coordinates => "145024 182008 156740 182008 156740 177951 168456 177951";
+    Taste::coordinates => "145024 182008 156740 182008 156740 179516 169395 179516";
   };
   testJoystickCommandDispatcherConsumer2_PI_sample1_JoystickCommandDispatcher_RI_sample1 : SUBPROGRAM ACCESS testJoystickCommandDispatcherConsumer2.PI_sample1 -> JoystickCommandDispatcher.RI_sample1 {
-    Taste::coordinates => "145024 185354 157457 185354 157457 198397 169891 198397";
+    Taste::coordinates => "145024 186293 157457 186293 157457 198397 169891 198397";
   };
   DoubleDispatcher_PI_dispatch_test_doubleProducer_RI_dispatch : SUBPROGRAM ACCESS DoubleDispatcher.PI_dispatch -> test_doubleProducer.RI_dispatch {
     Taste::coordinates => "80255 31282 88936 31282 88936 40659 98371 40659";
@@ -1168,6 +1367,18 @@ CONNECTIONS
   };
   test_noarg_consumer2_PI_sample1_NoArgDispatcher_RI_sample1 : SUBPROGRAM ACCESS test_noarg_consumer2.PI_sample1 -> NoArgDispatcher.RI_sample1 {
     Taste::coordinates => "146291 20331 154280 20331 154280 20332 162575 20332";
+  };
+  JoystickCommandDispatcher3_PI_dispatch_Function2_RI_dispatch : SUBPROGRAM ACCESS JoystickCommandDispatcher3.PI_dispatch -> Function2.RI_dispatch {
+    Taste::coordinates => "250335 56118 250335 64047 242695 64047 242695 75570 230685 75570";
+  };
+  Function1_PI_sample_JoystickCommandDispatcher3_RI_sample0 : SUBPROGRAM ACCESS Function1.PI_sample -> JoystickCommandDispatcher3.RI_sample0 {
+    Taste::coordinates => "252519 106975 252519 110794 264145 110794 264145 179025 269649 179025";
+  };
+  Function1_PI_sample_JoystickCommandDispatcher3_RI_sample1 : SUBPROGRAM ACCESS Function1.PI_sample -> JoystickCommandDispatcher3.RI_sample1 {
+    Taste::coordinates => "271030 106975 271030 103859 264145 103859 264145 179025 269649 179025";
+  };
+  Function1_PI_sample_JoystickCommandDispatcher3_RI_sample2 : SUBPROGRAM ACCESS Function1.PI_sample -> JoystickCommandDispatcher3.RI_sample2 {
+    Taste::coordinates => "239787 106975 239787 117833 242790 117833 242790 179025 269649 179025";
   };
 END interfaceview.others;
 

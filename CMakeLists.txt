@@ -40,6 +40,7 @@ esrocos_init()
 esrocos_export_function("MotionCommandDispatcher" "share/taste_components/dispatchers")
 esrocos_export_function("RigidBodyStateDispatcher" "share/taste_components/dispatchers")
 esrocos_export_function("JoystickCommandDispatcher" "share/taste_components/dispatchers")
+esrocos_export_function("JoystickCommandDispatcher3" "share/taste_components/dispatchers")
 esrocos_export_function("DoubleDispatcher" "share/taste_components/dispatchers")
 esrocos_export_function("NoArgDispatcher" "share/taste_components/dispatchers")
 

@@ -11,9 +11,10 @@ void joystickcommanddispatcher_startup()
 
 void joystickcommanddispatcher_PI_dispatch(const asn1SccJoystickCommand *IN_sample)
 {
-    printf("Joystick Dispather called\n");
+#ifdef DEBUG
+    printf("Joystick Dispatcher called\n");
+#endif
     joystickcommanddispatcher_RI_sample(IN_sample);
     joystickcommanddispatcher_RI_sample1(IN_sample);
-    printf("Joystick Dispather done\n");
 }
 
