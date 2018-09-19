@@ -13,8 +13,8 @@ void joystickcommanddispatcher3_PI_dispatch(const asn1SccJoystickCommand *IN_sam
 #ifdef DEBUG
     printf("Joystick Dispatcher called\n");
 #endif
-  joystickcommanddispatcher_RI_sample0(IN_sample);
-  joystickcommanddispatcher_RI_sample1(IN_sample);
-  joystickcommanddispatcher_RI_sample2(IN_sample);
+  joystickcommanddispatcher3_RI_sample0(IN_sample);
+  joystickcommanddispatcher3_RI_sample1(IN_sample);
+  joystickcommanddispatcher3_RI_sample2(IN_sample);
 }
 
