@@ -11,10 +11,12 @@ extern "C" {
 #endif
 
 
+/*-- asn1SccContext_test_doubleproducer --------------------------------------------*/
 
 typedef struct {
     asn1SccT_Float init_val;
     asn1SccT_Float inc;
+
 } asn1SccContext_test_doubleproducer;
 
 flag asn1SccContext_test_doubleproducer_Equal(const asn1SccContext_test_doubleproducer* pVal1, const asn1SccContext_test_doubleproducer* pVal2);

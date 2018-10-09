@@ -11,10 +11,12 @@ extern "C" {
 #endif
 
 
+/*-- asn1SccContext_test_motioncommanddisapatcherproducer --------------------------------------------*/
 
 typedef struct {
     asn1SccT_Float init_val;
     asn1SccT_Float inc;
+
 } asn1SccContext_test_motioncommanddisapatcherproducer;
 
 flag asn1SccContext_test_motioncommanddisapatcherproducer_Equal(const asn1SccContext_test_motioncommanddisapatcherproducer* pVal1, const asn1SccContext_test_motioncommanddisapatcherproducer* pVal2);
