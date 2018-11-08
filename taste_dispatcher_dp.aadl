@@ -78,13 +78,13 @@ END deploymentview::DV::Node5;
 PACKAGE deploymentview::DV
 PUBLIC
 
-WITH interfaceview::IV::MotionCommandDispatcher;
+WITH interfaceview::MotionCommandDispatcher;
 WITH interfaceview::IV::test_MotionCommandDispatcherConsumer1;
 WITH interfaceview::IV::test_MotionCommandDispatcherConsumer2;
 WITH interfaceview::IV::test_MotioncommandDisapatcherProducer;
 WITH ocarina_processors_x86;
 WITH deploymentview::DV::Node1;
-WITH interfaceview::IV::RigidBodyStateDispatcher;
+WITH interfaceview::RigidBodyStateDispatcher;
 WITH interfaceview::IV::test_RigidBodyStateDisapatcherProducer;
 WITH interfaceview::IV::test_RigidBodyStateDispatcherConsumer1;
 WITH interfaceview::IV::test_RigidBodyStateDispatcherConsumer2;
@@ -113,7 +113,7 @@ END Node1;
 
 SYSTEM IMPLEMENTATION Node1.others
 SUBCOMPONENTS
-  IV_MotionCommandDispatcher : SYSTEM interfaceview::IV::MotionCommandDispatcher::MotionCommandDispatcher.others {
+  IV_MotionCommandDispatcher : SYSTEM interfaceview::MotionCommandDispatcher::MotionCommandDispatcher.others {
     Taste::FunctionName => "MotionCommandDispatcher";
   };
   IV_test_MotionCommandDispatcherConsumer1 : SYSTEM interfaceview::IV::test_MotionCommandDispatcherConsumer1::test_MotionCommandDispatcherConsumer1.others {
@@ -145,7 +145,7 @@ END Node2;
 
 SYSTEM IMPLEMENTATION Node2.others
 SUBCOMPONENTS
-  IV_RigidBodyStateDispatcher : SYSTEM interfaceview::IV::RigidBodyStateDispatcher::RigidBodyStateDispatcher.others {
+  IV_RigidBodyStateDispatcher : SYSTEM interfaceview::RigidBodyStateDispatcher::RigidBodyStateDispatcher.others {
     Taste::FunctionName => "RigidBodyStateDispatcher";
   };
   IV_test_RigidBodyStateDisapatcherProducer : SYSTEM interfaceview::IV::test_RigidBodyStateDisapatcherProducer::test_RigidBodyStateDisapatcherProducer.others {
