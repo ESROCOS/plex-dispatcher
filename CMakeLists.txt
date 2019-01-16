@@ -43,6 +43,7 @@ esrocos_export_function("JoystickCommandDispatcher" "share/taste_components/disp
 esrocos_export_function("JoystickCommandDispatcher3" "share/taste_components/dispatchers")
 esrocos_export_function("DoubleDispatcher" "share/taste_components/dispatchers")
 esrocos_export_function("NoArgDispatcher" "share/taste_components/dispatchers")
+esrocos_export_function("markermux" "share/taste_components/dispatchers")
 
 #uncomment to export PKG-CONFIG-file
 esrocos_export_pkgconfig( VERSION 1.0
